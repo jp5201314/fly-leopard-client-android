@@ -29,7 +29,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name=".GuideActivity">
+        <activity android:name=".activity.GuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

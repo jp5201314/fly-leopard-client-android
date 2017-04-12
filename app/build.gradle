@@ -33,8 +33,28 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:23.0.4'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    /*百度地图定位包*/
     compile files('libs/BaiduLBS_Android.jar')
+    /*Okhttp网络服务包*/
+    compile 'com.squareup.okhttp:okhttp:2.6.0'
+    compile 'com.squareup.okio:okio:1.6.0'
+    /*butterknife生成包*/
+    compile 'com.jakewharton:butterknife:7.0.1'
+    /*fastjson解析包*/
+    compile 'com.alibaba:fastjson:1.2.7'
+    /*recycleview支持包*/
+    compile 'com.android.support:recyclerview-v7:25.1.1'
+    /*eventbus事件分发包*/
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //MVCHelper核心类库
+    compile 'com.shizhefei:MVCHelper-Library:1.0.6'
+    //里面包含一个MVCUltraHelper 是适配这个控件的 MVCHelper
+    compile 'com.shizhefei:MVCHelper-UltraRefresh:1.0.6'
+    //这里6月29号目前最新的，要实时关注新版本去秋大的网站上去看
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
+    /*图片加载工具*/
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

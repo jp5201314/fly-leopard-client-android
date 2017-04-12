@@ -1,7 +1,9 @@
-package cn.meituan.jp;
+package cn.meituan.jp.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import cn.meituan.jp.R;
 
 public class GuideActivity extends AppCompatActivity {
 
@@ -9,5 +11,6 @@ public class GuideActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
+
     }
 }
