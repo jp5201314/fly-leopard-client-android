@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">飞豹外卖</string>
+    <string name="sreach">搜索</string>
+    <string name="unLoginText">您还没有登录，请登录后再查看订单</string>
 </resources>
