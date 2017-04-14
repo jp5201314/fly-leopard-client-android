@@ -51,4 +51,10 @@ public class UserSharedPreference {
             editor.commit();
         }
     }
+
+    public void setPhoneAndPassword(String mobile,String password){
+        editor.putString("mobile",mobile);
+        editor.putString("password",password);
+        editor.commit();
+    }
 }

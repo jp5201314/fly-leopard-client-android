@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import cn.meituan.jp.R;
 import cn.meituan.jp.fragment.LoginFragment;
-import cn.meituan.jp.fragment.RegisterFragment;
+import cn.meituan.jp.fragment.QuickLoginFragment;
 
 /**
  * Created by 11608 on 2017/4/14.
@@ -53,7 +53,7 @@ public class TabIndicatorFragmentPagerAdapter extends com.shizhefei.view.indicat
                 fragment.setArguments(bundle);
                 break;
             case 1:
-                fragment = new RegisterFragment();
+                fragment = new QuickLoginFragment();
                 bundle = new Bundle();
                 bundle.putInt("position", position);
                 fragment.setArguments(bundle);

@@ -1,5 +1,6 @@
 package cn.meituan.jp.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -68,5 +69,13 @@ public class BaseActivity extends AppCompatActivity {
             winParams.flags &= ~bits;
         }
         win.setAttributes(winParams);
+    }
+
+    protected void toLoginRegister(){
+        startActivity(new Intent(this,LoginRegisterActivity.class));
+    }
+
+    protected void toRegister(){
+        startActivity(new Intent(this,RegisterActivity.class));
     }
 }

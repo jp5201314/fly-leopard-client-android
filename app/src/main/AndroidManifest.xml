@@ -78,10 +78,13 @@
             android:name=".activity.HomePageSearchActivity"
             android:screenOrientation="userPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--注册界面-->
-        <activity android:name=".activity.RegisterActivity"
+        <!-- 注册界面 -->
+        <activity
+            android:name=".activity.RegisterActivity"
             android:screenOrientation="userPortrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.MyAccountActivity" />
+        <activity android:name=".activity.MessageActivity"></activity>
     </application>
 
 </manifest>

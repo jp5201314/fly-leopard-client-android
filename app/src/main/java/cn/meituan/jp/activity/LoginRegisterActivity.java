@@ -58,7 +58,7 @@ public class LoginRegisterActivity extends BaseActivity {
         };
 
         indicator.setOnTransitionListener(listener.setColor(getResources().getColor(R.color.color_green_3bb4bc),
-                getResources().getColor(R.color.color_white_ffffff)).setSize(selectSize, unSelectSize));
+                getResources().getColor(R.color.color_black_0e1214)).setSize(selectSize, unSelectSize));
         adapter = new TabIndicatorFragmentPagerAdapter(getSupportFragmentManager(), this, TITLES);
         //将指示器和ViewPager绑定在一起
         indicatorViewPager = new IndicatorViewPager(indicator, vpLoginRegister);
@@ -69,6 +69,6 @@ public class LoginRegisterActivity extends BaseActivity {
 
     @OnClick(R.id.tv_register)
     public void toRegister() {
-        startActivity(new Intent(this, RegisterActivity.class));
+        toRegister();
     }
 }

@@ -20,7 +20,7 @@
                 android:background="@color/color_orange_fade05">
 
                 <ImageView
-                    android:id="@+id/title"
+                    android:id="@+id/iv_title"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_centerHorizontal="true"
@@ -330,7 +330,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="商家入驻"
-                    android:textColor="#1a1919"
+                    android:textColor="@color/color_black_1a1919"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -366,7 +366,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="帮助与反馈"
-                    android:textColor="#1a1919"
+                    android:textColor="@color/color_black_1a1919"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -396,12 +396,13 @@
                     android:background="@drawable/icon_order_online_service" />
 
                 <TextView
+                    android:id="@+id/tv_online_service"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="在线客服"
-                    android:textColor="#1a1919"
+                    android:textColor="@color/color_black_1a1919"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -442,12 +443,13 @@
                     android:background="@drawable/icon_order_more" />
 
                 <TextView
+                    android:id="@+id/tv_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="更多"
-                    android:textColor="#1a1919"
+                    android:textColor="@color/color_black_1a1919"
                     android:textSize="14sp" />
 
                 <ImageView

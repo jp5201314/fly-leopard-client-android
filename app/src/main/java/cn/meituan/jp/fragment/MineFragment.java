@@ -3,6 +3,7 @@ package cn.meituan.jp.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,15 +15,19 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
-import cn.meituan.jp.activity.LoginRegisterActivity;
+import cn.meituan.jp.UserSharedPreference;
+import cn.meituan.jp.activity.MessageActivity;
+import cn.meituan.jp.activity.MyAccountActivity;
 
 /**
  * Created by 11608 on 2017/4/13.
  */
 
 public class MineFragment extends BaseFragment {
+
+
     @Bind(R.id.iv_title)
-    ImageView title;
+    ImageView ivTitle;
     @Bind(R.id.iv_msg)
     ImageView ivMsg;
     @Bind(R.id.tv_login_register)
@@ -69,16 +74,23 @@ public class MineFragment extends BaseFragment {
     TextView tvHelpFeedback;
     @Bind(R.id.rl_help_feedback)
     RelativeLayout rlHelpFeedback;
+    @Bind(R.id.tv_online_service)
+    TextView tvOnlineService;
     @Bind(R.id.rl_online_service)
     RelativeLayout rlOnlineService;
+    @Bind(R.id.tv_more)
+    TextView tvMore;
     @Bind(R.id.rl_more)
     RelativeLayout rlMore;
+    private String isLogined;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine, container, false);
         ButterKnife.bind(this, view);
+        isLogined = UserSharedPreference.getInstance().getIsLogined();
+
         return view;
     }
 
@@ -89,7 +101,27 @@ public class MineFragment extends BaseFragment {
     }
 
     @OnClick(R.id.iv_title)
-    public void toLoginRegister(){
-        startActivity(new Intent(getActivity(), LoginRegisterActivity.class));
+    public void toShowAcountInfo() {
+        if (TextUtils.isEmpty(isLogined)) {
+            jumpLogin();
+        }
+        startActivity(new Intent(getActivity(), MyAccountActivity.class));
+    }
+
+    @OnClick(R.id.iv_msg)
+    public void toGetMsg() {
+        if (TextUtils.isEmpty(isLogined)) {
+            jumpLogin();
+        }
+        startActivity(new Intent(getActivity(), MessageActivity.class));
+    }
+
+    //初始化操作
+    private void init() {
+        tvMyEvaluation.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
+        tvHelpFeedback.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
+        tvOnlineService.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
+        tvMore.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
+
     }
 }

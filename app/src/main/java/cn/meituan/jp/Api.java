@@ -5,4 +5,5 @@ package cn.meituan.jp;
  */
 
 public class Api {
+    public static final String LOGIN = "";
 }

@@ -1,7 +1,11 @@
 package cn.meituan.jp.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.widget.Toast;
 
+import cn.meituan.jp.R;
+import cn.meituan.jp.activity.LoginRegisterActivity;
 import cn.meituan.jp.view.RefreshHeaderView;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -20,5 +24,13 @@ public class BaseFragment extends Fragment {
         ptr.setDurationToCloseHeader(800);
         ptr.setHeaderView(ptrHeader);
         ptr.addPtrUIHandler(ptrHeader);
+    }
+
+    protected void jumpLogin(){
+        startActivity(new Intent(getActivity(), LoginRegisterActivity.class));
+    }
+
+    protected void toast(String msg){
+        Toast.makeText(getActivity(), msg,Toast.LENGTH_SHORT).show();
     }
 }
