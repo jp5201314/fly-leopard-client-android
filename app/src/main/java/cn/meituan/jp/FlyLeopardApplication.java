@@ -2,6 +2,7 @@ package cn.meituan.jp;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -10,6 +11,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import cn.finalteam.okhttpfinal.OkHttpFinal;
 import cn.finalteam.okhttpfinal.OkHttpFinalConfiguration;
+import cn.meituan.jp.activity.LoginRegisterActivity;
 import cn.meituan.jp.event.ErrorMessageEvent;
 import cn.meituan.jp.event.UnLoginEvent;
 
@@ -83,7 +85,7 @@ public class FlyLeopardApplication extends Application{
 
     protected void jumpToLogin() {
         if (!allowJumpToLogin()) return;
-        //startActivity(new Intent(mContext, LoginActivity.class));
+        startActivity(new Intent(mContext, LoginRegisterActivity.class));
     }
 
     /**

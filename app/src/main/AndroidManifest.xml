@@ -20,8 +20,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <!--屏幕常亮-->
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- 屏幕常亮 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name=".FlyLeopardApplication"
@@ -33,8 +33,8 @@
         <activity
             android:name=".activity.WelcomeActivity"
             android:screenOrientation="userPortrait"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/FullTheme">
+            android:theme="@style/FullTheme"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,12 +55,33 @@
             android:theme="@style/FullTheme" />
         <!-- 登录界面 -->
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.LoginRegisterActivity"
             android:screenOrientation="userPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MainActivity"
+        <!-- 主界面 -->
+        <activity
+            android:name=".activity.MainActivity"
             android:screenOrientation="userPortrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 轮播图界面 -->
+        <activity
+            android:name=".activity.HomePageCarouselWebViewActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 美食.美团超市的详情 -->
+        <activity
+            android:name=".activity.HomePageGrid1DetailActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 主页面搜索界面 -->
+        <activity
+            android:name=".activity.HomePageSearchActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--注册界面-->
+        <activity android:name=".activity.RegisterActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

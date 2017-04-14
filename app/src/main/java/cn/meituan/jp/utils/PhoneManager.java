@@ -534,7 +534,7 @@ public class PhoneManager {
     /**
      * 测试GPS
      */
-    private void openGPSSettings() {
+    public static void openGPSSettings() {
         LocationManager alm = (LocationManager) CONTEXT
                 .getSystemService(Context.LOCATION_SERVICE);
         if (alm.isProviderEnabled(LocationManager.GPS_PROVIDER)) {

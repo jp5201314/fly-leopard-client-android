@@ -1,9 +1,17 @@
 package cn.meituan.jp.activity;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
+
+import cn.meituan.jp.utils.SystemBarTintManager;
+import cn.meituan.jp.view.RefreshHeaderView;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
 /**
  * Created by 11608 on 2017/4/13.
@@ -31,4 +39,34 @@ public class BaseActivity extends AppCompatActivity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
+    protected void setMaterialHeader(PtrClassicFrameLayout ptr) {
+        RefreshHeaderView ptrHeader = new RefreshHeaderView(getApplicationContext());
+        ptrHeader.setLayoutParams(new PtrFrameLayout.LayoutParams(-1, -2));
+        ptrHeader.setPtrFrameLayout(ptr);
+        ptr.setLoadingMinTime(800);
+        ptr.setDurationToCloseHeader(800);
+        ptr.setHeaderView(ptrHeader);
+        ptr.addPtrUIHandler(ptrHeader);
+    }
+
+    protected void setStatusBarColor(int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            setTranslucentStatus(true);
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(color);//通知栏所需颜色
+        }
+    }
+
+    private void setTranslucentStatus(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
 }

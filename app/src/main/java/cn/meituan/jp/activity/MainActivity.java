@@ -4,20 +4,18 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
-import cn.meituan.jp.adapter.MainAdapter;
+import cn.meituan.jp.adapter.MainFragmentAdapter;
+import cn.meituan.jp.utils.PhoneManager;
 
 public class MainActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
     @Bind(R.id.vp)
@@ -38,15 +36,18 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
     TextView mainMineTv;
     @Bind(R.id.rl_mine)
     RelativeLayout rlMine;
-    MainAdapter adapter;
+    MainFragmentAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        if(!PhoneManager.isNetWorkAvailable()){
+            toast("网络未连接，请打开网络连接");
+        }
         vp.setCurrentItem(0);
         changeHomePageState();
-        adapter = new MainAdapter(getSupportFragmentManager());
+        adapter = new MainFragmentAdapter(getSupportFragmentManager());
         vp.setAdapter(adapter);
         vp.setOnPageChangeListener(this);
     }

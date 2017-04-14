@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="color_transparent">#00000000</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
@@ -37,7 +38,7 @@
     <color name="color_gray_4a5159">#4a5159</color>
     <color name="color_gray_32393f">#32393f</color>
     <color name="color_gray_eae8db">#eae8db</color>
-
+    <color name="color_black_373d41">#373D41</color>
     <color name="color_black_000000_alpha_80">#CC000000</color>
     <color name="color_black_0e1214">#0E1214</color>
     <color name="color_black_1b2025">#1B2025</color>
