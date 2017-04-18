@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_listitem4_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_shop_info"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:id="@+id/iv_business_picture"
+            android:layout_width="100dp"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/tv_shop_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/iv_business_picture"
+            android:text="兰韩正统韩食(科华店)"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_shop_star"
+            android:layout_width="60dp"
+            android:layout_height="12dp"
+            android:layout_below="@id/tv_shop_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_toRightOf="@+id/iv_business_picture"
+            android:background="@drawable/icon_star2" />
+
+        <TextView
+            android:id="@+id/tv_sale_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_shop_name"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@+id/iv_shop_star"
+            android:text="月售{%s}单"
+            android:textColor="#be625a"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_min_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/iv_shop_star"
+            android:layout_below="@id/iv_shop_star"
+            android:layout_marginTop="11dp"
+            android:text="起送价 ￥20"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_divide"
+            android:layout_width="1dp"
+            android:layout_height="10dp"
+            android:layout_alignTop="@+id/tv_min_fee"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/tv_min_fee"
+            android:background="#b0b0b0" />
+
+        <TextView
+            android:id="@+id/tv_packing_fee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_min_fee"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@id/tv_divide"
+            android:text="配送费 ￥4"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_shop_name"
+            android:layout_alignParentRight="true"
+            android:text="705m"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/tv_sale_month"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_distance"
+            android:text="45分钟"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="18dp"
+            android:layout_alignBaseline="@id/tv_packing_fee"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_time"
+            android:paddingBottom="6dp"
+            android:background="@drawable/icon_fly_leopard_express" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_shop_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_shop_info"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="6dp"
+        android:clickable="true">
+
+        <View
+            android:id="@+id/item_divide"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#efefef" />
+
+        <TextView
+            android:id="@+id/tv_now_reduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="新用户立减15元"
+            android:textColor="#a9a9a9"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_now_reduce"
+            android:layout_marginTop="1dp"
+            android:text="折扣商品6折起"
+            android:textColor="#a9a9a9"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_activity_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_discount"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_activity3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="下单即送精美前菜"
+                android:textColor="#a9a9a9"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_activity4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="满25减10;满45减18，满60减25"
+                android:textColor="#a9a9a9"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_activity5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="满60免配送费"
+                android:textColor="#a9a9a9"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_activity6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="不给钱免费吃"
+                android:textColor="#a9a9a9"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_activity_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/ll_activity_list"
+            android:text="6个活动 ∨"
+            android:textColor="#a9a9a9"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:layout_below="@+id/rl_shop_activity"
+        android:background="@color/color_white_efefef" />
+</RelativeLayout>

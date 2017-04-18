@@ -9,7 +9,7 @@ import cn.meituan.jp.utils.PhoneManager;
 public class Constant {
 
     //主机地址
-    public static final String REQUEST_HOST = "jiangping-server.icarowner.cn";
+    public static final String REQUEST_HOST = "http://jiangping-server.icarowner.cn/";
 
     public static String getHost(){
         return  REQUEST_HOST;

@@ -47,6 +47,7 @@ public class FlyHttpRequestCallBack extends JsonHttpRequestCallback {
                 onDataError(status, statusInfo);
                 if (autoToastErrorMessage) {
                     EventBus.getDefault().post(new ErrorMessageEvent(statusInfo.getString("message")));
+                    unAvailableLogin(status);
                 }
                 break;
             case 40000://JWT_TOKEN不存在

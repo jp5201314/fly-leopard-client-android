@@ -83,8 +83,91 @@
             android:name=".activity.RegisterActivity"
             android:screenOrientation="userPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.MyAccountActivity" />
-        <activity android:name=".activity.MessageActivity"></activity>
+        <!-- 我的账户信息 -->
+        <activity
+            android:name=".activity.MyAccountActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的信息 -->
+        <activity
+            android:name=".activity.MessageActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的钱包信息 -->
+        <activity
+            android:name=".activity.MyWalletActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的红包信息 -->
+        <activity
+            android:name=".activity.MyRedPacketActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的优惠券信息 -->
+        <activity
+            android:name=".activity.MyCouponActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的评价信息 -->
+        <activity
+            android:name=".activity.MyEvaluationActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的收藏信息 -->
+        <activity
+            android:name=".activity.MyCollectionActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的收货地址信息 -->
+        <activity
+            android:name=".activity.MyAddressActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的分享信息 -->
+        <activity
+            android:name=".activity.MyShareActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 商家入驻信息 -->
+        <activity
+            android:name=".activity.BusinessInToActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的帮助和反馈信息 -->
+        <activity
+            android:name=".activity.HelpAndFeedBackActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的在线客服信息 -->
+        <activity
+            android:name=".activity.MyOnlineServiceActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 更多信息 -->
+        <activity
+            android:name=".activity.MoreActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!-- 我的商店详情信息 -->
+        <activity
+            android:name=".activity.ShopDetailActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--更新用户名-->
+        <activity
+            android:name=".activity.UpdateUserNameActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--设置密码-->
+        <activity
+            android:name=".activity.SetPasswordActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <!--绑定电话号码-->
+        <activity
+            android:name=".activity.BindPhoneNumActivity"
+            android:screenOrientation="userPortrait"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

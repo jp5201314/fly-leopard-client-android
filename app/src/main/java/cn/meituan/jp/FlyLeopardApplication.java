@@ -3,6 +3,7 @@ package cn.meituan.jp;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -19,10 +20,11 @@ import cn.meituan.jp.event.UnLoginEvent;
  * Created by 11608 on 2017/4/12.
  */
 
-public class FlyLeopardApplication extends Application{
+public class FlyLeopardApplication extends Application {
 
     private static FlyLeopardApplication INSTANCE;
     private static Context mContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -32,6 +34,7 @@ public class FlyLeopardApplication extends Application{
         initOkHttpFinal();
         EventBus.getDefault().register(mContext);
     }
+
     public static synchronized FlyLeopardApplication getInstance() {
         return INSTANCE;
     }
@@ -80,7 +83,7 @@ public class FlyLeopardApplication extends Application{
     }
 
     protected boolean allowJumpToLogin() {
-        return null == UserSharedPreference.getInstance().getIsLogined();
+        return -1 == UserSharedPreference.getInstance().getIsLogined();
     }
 
     protected void jumpToLogin() {
@@ -94,14 +97,8 @@ public class FlyLeopardApplication extends Application{
     private void initOkHttpFinal() {
         OkHttpFinalConfiguration.Builder builder = new OkHttpFinalConfiguration.Builder();
         builder.setDebug(true);
-        // builder.setTimeout(30000);
         OkHttpFinal.getInstance().init(builder.build());
 
-      /*  OkHttpFinal.getInstance().updateCommonHeader("Accept", "application/json");
-        String jwtToken = UserSharedPreference.getInstance().getJwtToken();
-        // 如果有jwt token，则设置
-        if (!TextUtils.isEmpty(jwtToken)) {
-            OkHttpFinal.getInstance().updateCommonHeader("Authorization", "Bearer " + jwtToken);
-        }*/
+        OkHttpFinal.getInstance().updateCommonHeader("Accept", "application/json");
     }
 }

@@ -35,6 +35,7 @@ public class HomePageSearchActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_search);
         ButterKnife.bind(this);
+        this.setStatusBarColor(R.color.color_black_0e1214);
 
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override

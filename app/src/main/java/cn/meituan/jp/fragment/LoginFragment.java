@@ -4,18 +4,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.finalteam.okhttpfinal.HttpCycleContext;
 import cn.finalteam.okhttpfinal.HttpRequest;
+import cn.finalteam.okhttpfinal.JsonHttpRequestCallback;
 import cn.finalteam.okhttpfinal.OkHttpFinal;
 import cn.finalteam.okhttpfinal.RequestParams;
 import cn.meituan.jp.Api;
@@ -23,7 +29,10 @@ import cn.meituan.jp.Constant;
 import cn.meituan.jp.R;
 import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.activity.MainActivity;
+import cn.meituan.jp.entity.UserEntity;
+import cn.meituan.jp.event.ErrorMessageEvent;
 import cn.meituan.jp.net.FlyHttpRequestCallBack;
+import okhttp3.Headers;
 
 
 /**
@@ -54,40 +63,43 @@ public class LoginFragment extends BaseFragment {
 
     @OnClick(R.id.btn_login)
     public void login(){
-        final String phoneNum = etAccount.getText().toString();
+        final String name = etAccount.getText().toString();
         final String  password = etPassword.getText().toString();
 
-        RequestParams params = new RequestParams((HttpCycleContext) getActivity());
-        if (TextUtils.isEmpty(phoneNum)) {
-            toast("请填写手机号");
+        RequestParams params = new RequestParams(this);
+        if (TextUtils.isEmpty(name)) {
+            toast("请填写用户名");
             return;
         } else {
-            params.addFormDataPart("mobile", phoneNum);
+            params.addFormDataPart("name", name);
         }
         if (TextUtils.isEmpty(password)) {
            toast("请填写密码");
             return;
         } else {
-            params.addFormDataPart("password", password);
+            params.addFormDataPart("pass", password);
         }
-
-        HttpRequest.post(Constant.getHost() + Api.LOGIN, params, new FlyHttpRequestCallBack() {
+        HttpRequest.post(Constant.getHost() + Api.LOGIN, params, new JsonHttpRequestCallback() {
             @Override
-            protected void onDataSuccess(JSONObject data) {
-                super.onDataSuccess(data);
-               toast("登录成功");
-                String token = data.getString("token");
-                UserSharedPreference.getInstance().setIsLogined(token);
-                UserSharedPreference.getInstance().setPhoneAndPassword(phoneNum, password);
-                OkHttpFinal.getInstance().updateCommonHeader("Authorization", "Bearer " + token);
+            protected void onSuccess(JSONObject jsonObject) {
+                super.onSuccess(jsonObject);
+                toast("登录成功");
+                int status = jsonObject.getIntValue("status");
+                UserSharedPreference.getInstance().setIsLogined(status);
+                UserSharedPreference.getInstance().setPhoneAndPassword(name, password);
+                JSONObject data = jsonObject.getJSONObject("data");
+                UserSharedPreference.getInstance().setUserJsonString(data.toJSONString());
                 getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
             }
 
             @Override
-            protected void onDataError(int status, JSONObject statusInfo) {
-                super.onDataError(status, statusInfo);
+            public void onFailure(int errorCode, String msg) {
+                super.onFailure(errorCode, msg);
+
+                EventBus.getDefault().post(new ErrorMessageEvent("登录失败"));
             }
+
         });
     }
 }

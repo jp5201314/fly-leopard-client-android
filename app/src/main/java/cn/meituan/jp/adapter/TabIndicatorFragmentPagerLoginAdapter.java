@@ -17,12 +17,12 @@ import cn.meituan.jp.fragment.QuickLoginFragment;
  * Created by 11608 on 2017/4/14.
  */
 
-public class TabIndicatorFragmentPagerAdapter extends com.shizhefei.view.indicator.IndicatorViewPager.IndicatorFragmentPagerAdapter {
+public class TabIndicatorFragmentPagerLoginAdapter extends com.shizhefei.view.indicator.IndicatorViewPager.IndicatorFragmentPagerAdapter {
     private Context context;
     private String []title;
     private Fragment fragment;
     private Bundle bundle;
-    public TabIndicatorFragmentPagerAdapter(FragmentManager fragmentManager, Context context, String []title) {
+    public TabIndicatorFragmentPagerLoginAdapter(FragmentManager fragmentManager, Context context, String []title) {
         super(fragmentManager);
         this.context = context;
         this.title = title;

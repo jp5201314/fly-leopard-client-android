@@ -6,7 +6,7 @@
         android:id="@+id/ib_back"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:background="@drawable/icon_back"
+        android:background="@drawable/icon_back1"
         android:layout_gravity="start|center"
         android:layout_marginLeft="12dp"
         />
@@ -23,7 +23,7 @@
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_gravity="end|center"
-        android:background="@drawable/selector_search"
+        android:background="@drawable/icon_search"
         android:layout_marginRight="12dp"
         />
 

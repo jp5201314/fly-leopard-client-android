@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white_ffffff">
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/color_black_0e1214"
+        android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="48dp"
+        android:layout_height="39dp"
+        android:layout_gravity="start"
+        android:background="@null"
+        android:src="@drawable/icon_back1" />
+
+</FrameLayout>

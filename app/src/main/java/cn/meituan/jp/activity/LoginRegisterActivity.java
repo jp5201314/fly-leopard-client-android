@@ -1,6 +1,5 @@
 package cn.meituan.jp.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -16,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
-import cn.meituan.jp.adapter.TabIndicatorFragmentPagerAdapter;
+import cn.meituan.jp.adapter.TabIndicatorFragmentPagerLoginAdapter;
 
 public class LoginRegisterActivity extends BaseActivity {
 
@@ -59,7 +58,7 @@ public class LoginRegisterActivity extends BaseActivity {
 
         indicator.setOnTransitionListener(listener.setColor(getResources().getColor(R.color.color_green_3bb4bc),
                 getResources().getColor(R.color.color_black_0e1214)).setSize(selectSize, unSelectSize));
-        adapter = new TabIndicatorFragmentPagerAdapter(getSupportFragmentManager(), this, TITLES);
+        adapter = new TabIndicatorFragmentPagerLoginAdapter(getSupportFragmentManager(), this, TITLES);
         //将指示器和ViewPager绑定在一起
         indicatorViewPager = new IndicatorViewPager(indicator, vpLoginRegister);
         indicatorViewPager.setAdapter(adapter);
@@ -69,6 +68,6 @@ public class LoginRegisterActivity extends BaseActivity {
 
     @OnClick(R.id.tv_register)
     public void toRegister() {
-        toRegister();
+        intoRegister();
     }
 }

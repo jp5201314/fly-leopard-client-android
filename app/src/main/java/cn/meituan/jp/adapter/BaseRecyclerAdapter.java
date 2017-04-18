@@ -3,6 +3,7 @@ package cn.meituan.jp.adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 
+import com.shizhefei.mvc.IAsyncDataSource;
 import com.shizhefei.mvc.IDataAdapter;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
         super();
         this.context = context;
     }
+
 
     @Override
     public int getItemCount() {

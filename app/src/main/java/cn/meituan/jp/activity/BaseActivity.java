@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import cn.finalteam.okhttpfinal.HttpCycleContext;
 import cn.meituan.jp.utils.SystemBarTintManager;
 import cn.meituan.jp.view.RefreshHeaderView;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
@@ -18,8 +19,8 @@ import in.srain.cube.views.ptr.PtrFrameLayout;
  * Created by 11608 on 2017/4/13.
  */
 
-public class BaseActivity extends AppCompatActivity {
-
+public class BaseActivity extends AppCompatActivity implements HttpCycleContext {
+    protected final String HTTP_TASK_KEY = "HttpTaskKey_" + hashCode();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,7 +76,13 @@ public class BaseActivity extends AppCompatActivity {
         startActivity(new Intent(this,LoginRegisterActivity.class));
     }
 
-    protected void toRegister(){
+    protected void intoRegister(){
         startActivity(new Intent(this,RegisterActivity.class));
     }
+
+    @Override
+    public String getHttpTaskKey() {
+        return HTTP_TASK_KEY;
+    }
+
 }

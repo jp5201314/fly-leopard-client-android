@@ -3,10 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     tools:context="cn.meituan.jp.activity.MessageActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="消息"/>
+
+    <include layout="@layout/toolbar_title" />
+
+    <LinearLayout
+        android:id="@+id/ll_no_message"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon_no_content"
+            />
+        <TextView
+            style="@style/text_666666_15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="你还没有消息哦" />
+
+    </LinearLayout>
+
 </LinearLayout>
