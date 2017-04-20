@@ -9,7 +9,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
 import cn.finalteam.okhttpfinal.HttpCycleContext;
+import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.utils.SystemBarTintManager;
 import cn.meituan.jp.view.RefreshHeaderView;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
@@ -73,6 +75,7 @@ public class BaseActivity extends AppCompatActivity implements HttpCycleContext 
     }
 
     protected void toLoginRegister(){
+        toast("请先登录~");
         startActivity(new Intent(this,LoginRegisterActivity.class));
     }
 
@@ -85,4 +88,7 @@ public class BaseActivity extends AppCompatActivity implements HttpCycleContext 
         return HTTP_TASK_KEY;
     }
 
+    protected int getLoginStatus(){
+        return UserSharedPreference.getInstance().getIsLogined();
+    }
 }

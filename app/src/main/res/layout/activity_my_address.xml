@@ -1,10 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_gray_efefef"
+    android:fitsSystemWindows="true"
     tools:context="cn.meituan.jp.activity.MyAddressActivity">
 
     <include layout="@layout/toolbar_title" />
-</LinearLayout>
+
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
+        xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/ptr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        cube_ptr:ptr_duration_to_close="300"
+        cube_ptr:ptr_duration_to_close_header="2000"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="false"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
+        cube_ptr:ptr_resistance="1.5">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_white_ffffff"
+        android:choiceMode="singleChoice"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:scrollbarStyle="outsideOverlay" />
+</in.srain.cube.views.ptr.PtrClassicFrameLayout>
+    <LinearLayout
+        android:id="@+id/ll_address_add"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/select_ll_background"
+        android:gravity="center">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:drawableLeft="@drawable/select_address_add"
+            android:text="新增收货地址" />
+    </LinearLayout>
+
+
+</FrameLayout>

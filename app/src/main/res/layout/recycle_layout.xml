@@ -18,7 +18,11 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:scrollbarStyle="outsideOverlay"/>
 
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 </LinearLayout>

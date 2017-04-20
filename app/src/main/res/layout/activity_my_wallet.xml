@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/color_white_ffffff_alpha_60"
     tools:context="cn.meituan.jp.activity.MyWalletActivity">
 <include
     layout="@layout/toolbar_title"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="128dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/iv_myWallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_wallet__bag"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥"
+                style="@style/text_0e1214_22"/>
+            <TextView
+                android:id="@+id/tv_money_sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                style="@style/text_0e1214_22"/>
+        </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

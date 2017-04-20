@@ -56,7 +56,7 @@ public class LoginRegisterActivity extends BaseActivity {
             }
         };
 
-        indicator.setOnTransitionListener(listener.setColor(getResources().getColor(R.color.color_green_3bb4bc),
+        indicator.setOnTransitionListener(listener.setColor(getResources().getColor(R.color.colorPrimaryDark),
                 getResources().getColor(R.color.color_black_0e1214)).setSize(selectSize, unSelectSize));
         adapter = new TabIndicatorFragmentPagerLoginAdapter(getSupportFragmentManager(), this, TITLES);
         //将指示器和ViewPager绑定在一起

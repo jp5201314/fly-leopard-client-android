@@ -21,5 +21,14 @@
         android:layout_gravity="start"
         android:background="@null"
         android:src="@drawable/icon_back1" />
+    <TextView
+        android:id="@+id/tv_add_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:visibility="gone"
+        style="@style/text_666666_12"
+        android:layout_marginRight="12dp"
+        />
 
 </FrameLayout>

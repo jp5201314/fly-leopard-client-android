@@ -32,6 +32,7 @@ public class BaseFragment extends Fragment implements HttpCycleContext{
     }
 
     protected void jumpLogin(){
+        toast("请先登录~");
         startActivity(new Intent(getActivity(), LoginRegisterActivity.class));
     }
 

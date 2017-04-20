@@ -28,6 +28,7 @@ import cn.meituan.jp.R;
 import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.activity.BusinessInToActivity;
 import cn.meituan.jp.activity.HelpAndFeedBackActivity;
+import cn.meituan.jp.activity.LoginRegisterActivity;
 import cn.meituan.jp.activity.MessageActivity;
 import cn.meituan.jp.activity.MoreActivity;
 import cn.meituan.jp.activity.MyAccountActivity;
@@ -133,13 +134,12 @@ public class MineFragment extends BaseFragment {
     public void toShowAccountInfo() {
         if (isLogined == -1) {
             jumpLogin();
-            toast("请先登录~");
             return;
         } else {
             Intent intent = new Intent(getActivity(), MyAccountActivity.class);
-            intent.putExtra("id",JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id"));
-            Log.i("FSLog",JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id")+"");
-            intent.putExtra("password",UserSharedPreference.getInstance().getPassword());
+            intent.putExtra("id", JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id"));
+            Log.i("FSLog", JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id") + "");
+            intent.putExtra("password", UserSharedPreference.getInstance().getPassword());
             startActivity(intent);
         }
     }
@@ -148,17 +148,15 @@ public class MineFragment extends BaseFragment {
     public void toGetMsg() {
         if (isLogined == -1) {
             jumpLogin();
-            toast("请先登录~");
             return;
         } else {
-
             startActivity(new Intent(getActivity(), MessageActivity.class));
         }
     }
 
     @OnClick(R.id.tv_login_register)
     public void toLoginRegister() {
-        jumpLogin();
+        startActivity(new Intent(getActivity(), LoginRegisterActivity.class));
     }
 
     //初始化操作
@@ -171,63 +169,133 @@ public class MineFragment extends BaseFragment {
 
     @OnClick(R.id.rl_myWallet)
     public void toRlMyWallet() {
-        startActivity(new Intent(getActivity(), MyWalletActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyWalletActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_myRedPacket)
     public void toMyRedPacket() {
-        startActivity(new Intent(getActivity(), MyRedPacketActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyRedPacketActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_myCoupon)
     public void toMyCoupon() {
-        startActivity(new Intent(getActivity(), MyCouponActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyCouponActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_myEvaluation)
     public void toMyEvaluation() {
-        startActivity(new Intent(getActivity(), MyEvaluationActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyEvaluationActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_myCollection)
     public void toMyCollection() {
-        startActivity(new Intent(getActivity(), MyCollectionActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyCollectionActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_myAddress)
     public void toMyAddress() {
-        startActivity(new Intent(getActivity(), MyAddressActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyAddressActivity.class));
+        }
     }
 
     @OnClick(R.id.rl_myShare)
     public void toMyShare() {
-        startActivity(new Intent(getActivity(), MyShareActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyShareActivity.class));
+        }
     }
 
     @OnClick(R.id.rl_business)
     public void toBusiness() {
-        startActivity(new Intent(getActivity(), BusinessInToActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), BusinessInToActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_help_feedback)
     public void toHelpAndFeedBack() {
-        startActivity(new Intent(getActivity(), HelpAndFeedBackActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), HelpAndFeedBackActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_online_service)
     public void toOnlineService() {
-        startActivity(new Intent(getActivity(), MyOnlineServiceActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MyOnlineServiceActivity.class));
+        }
+
     }
 
     @OnClick(R.id.rl_more)
     public void toMore() {
-        startActivity(new Intent(getActivity(), MoreActivity.class));
+        if (isLogined == -1) {
+            jumpLogin();
+            return;
+        } else {
+            startActivity(new Intent(getActivity(), MoreActivity.class));
+        }
     }
 
     @OnClick(R.id.tv_service_phone)
     public void callServicePhone() {
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + tvServicePhone.getText().toString().trim()));
         startActivity(intent);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onExitCurrentAccount(ExitLoginEvent event){
+        if(-1==event.getType()){
+            tvLoginRegister.setClickable(true);
+        }
     }
 
 }

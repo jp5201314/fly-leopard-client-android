@@ -17,6 +17,9 @@ import com.shizhefei.view.indicator.slidebar.LayoutBar;
 import com.shizhefei.view.indicator.slidebar.ScrollBar;
 import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -24,6 +27,7 @@ import cn.meituan.jp.R;
 import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.activity.LoginRegisterActivity;
 import cn.meituan.jp.adapter.TabIndicatorFragmentPagerOrderEvaluationAdapter;
+import cn.meituan.jp.event.ExitLoginEvent;
 
 /**
  * Created by 11608 on 2017/4/13.
@@ -58,8 +62,9 @@ public class OrderFragment extends BaseFragment {
 
             llLoginRegister.setVisibility(View.GONE);
             btnLoginRegister.setClickable(false);
+            initIndicator();
         }
-        initIndicator();
+
         return view;
     }
 
@@ -94,5 +99,13 @@ public class OrderFragment extends BaseFragment {
     @OnClick(R.id.btn_login_register)
     public void toLoginRegister() {
         startActivity(new Intent(getActivity(), LoginRegisterActivity.class));
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onExitCurrentAccount(ExitLoginEvent event){
+        if(-1==event.getType()){
+            llLoginRegister.setVisibility(View.VISIBLE);
+            btnLoginRegister.setClickable(true);
+        }
     }
 }

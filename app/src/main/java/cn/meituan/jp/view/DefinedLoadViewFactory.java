@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shizhefei.mvc.ILoadViewFactory;
 import com.shizhefei.view.vary.VaryViewHelper;
@@ -122,7 +123,7 @@ public class DefinedLoadViewFactory implements ILoadViewFactory {
 
         @Override
         public void tipFail(Exception exception) {
-//            Toast.makeText(context, "网络加载失败", Toast.LENGTH_SHORT).show();
+           Toast.makeText(context, "网络加载失败", Toast.LENGTH_SHORT).show();
         }
 
         @Override

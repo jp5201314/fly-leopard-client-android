@@ -3,6 +3,9 @@ package cn.meituan.jp;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import cn.meituan.jp.entity.UserEntity;
 
 /**
@@ -49,13 +52,8 @@ public class UserSharedPreference {
     }
 
     public void removeLoginMsg() {
-        if (mSharedPreference.contains("status")) {
-            editor.remove("status");
-            editor.remove("name");
-            editor.remove("password");
-            editor.remove("user_json_string");
-            editor.commit();
-        }
+        editor.clear();
+        editor.commit();
     }
 
     public void setPhoneAndPassword(String mobile, String password) {
@@ -75,5 +73,14 @@ public class UserSharedPreference {
 
     public String getUserJsonString() {
         return mSharedPreference.getString("user_json_string", null);
+    }
+
+    public void setShoppingCartSum(int price){
+        editor.putInt("sum",price);
+        editor.commit();
+    }
+
+    public int getShoppingCartAmount(){
+        return mSharedPreference.getInt("sum",0);
     }
 }

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_phone_num"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_phone_white" />
+
+            <TextView
+                android:id="@+id/tv_shop_phone_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:textColor="#8f8d8d"
+                android:text="4009208852"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/icon_call_phone" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="6dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_address"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_order_myaddress" />
+
+            <TextView
+                android:id="@+id/tv_shop_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:textColor="#8f8d8d"
+                android:text="天府大道中段1305号三号楼一层"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/icon_order_in" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="6dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_environment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_shop_environment" />
+
+            <TextView
+                android:id="@+id/tv_shop_environment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:textColor="#8f8d8d"
+                android:text="商家环境"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/icon_order_in" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_dispatching_time"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_delivery_time" />
+
+            <TextView
+                android:id="@+id/tv_shop_dispatching_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:textColor="#8f8d8d"
+                android:text="配送时间:10:00-22:00"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="6dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_dispatching_service"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_delivery_service" />
+
+            <TextView
+                android:id="@+id/tv_shop_dispatching_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:textColor="#8f8d8d"
+                android:text="配送服务由商家提供"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_activity"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_phone_white" />
+
+            <TextView
+                android:id="@+id/tv_shop_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:textColor="#8f8d8d"
+                android:text="新用户立减17元，首次使用银行卡支付最高再减3元"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_online_pay"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_phone_white" />
+
+            <TextView
+                android:id="@+id/tv_shop_online_pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:textColor="#8f8d8d"
+                android:text="该商家支持在线支付"
+                android:textSize="14sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_invoice"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/icon_phone_white" />
+
+            <TextView
+                android:id="@+id/tv_shop_invoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="32dp"
+                android:text="本店支持开发票,开票金额0元起"
+                android:textColor="#8f8d8d"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_check_safe"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+
+            <TextView
+                android:id="@+id/tv_shop_check_safe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:text="查看食品安全档案"
+                android:textColor="#8f8d8d"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/icon_order_in" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@color/color_white_efefef" />
+
+        <RelativeLayout
+            android:id="@+id/rl_shop_report_business"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:id="@+id/tv_shop_report_business"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:textColor="#8f8d8d"
+                android:text="举报商家"
+                android:textSize="14sp" />
+
+
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/icon_order_in" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:background="@color/color_white_efefef" />
+    </LinearLayout>
+
+</ScrollView>

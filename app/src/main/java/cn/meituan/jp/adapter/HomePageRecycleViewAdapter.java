@@ -100,6 +100,7 @@ public class HomePageRecycleViewAdapter extends RecyclerView.Adapter {
                 Intent intent = new Intent(context, ShopDetailActivity.class);
                 intent.putExtra("shop_id", list.get(position).getId());
                 intent.putExtra("shop_name",list.get(position).getName());
+                intent.putExtra("shop_head_image",list.get(position).getPhoto());
                 context.startActivity(intent);
             }
         });

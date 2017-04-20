@@ -2,11 +2,13 @@ package cn.meituan.jp.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.io.Serializable;
+
 /**
  * Created by 11608 on 2017/4/14.
  */
 
-public class BusinessEntity {
+public class BusinessEntity implements Serializable{
 /**
  *   "id": 1,
  "name": "明洞炸鸡店",

@@ -469,7 +469,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp">
+                android:layout_height="40dp"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/tv_service_phone"
@@ -477,10 +478,18 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:text="客服电话：18080791836"
+                    android:text="18080791836"
                     android:textColor="#cfcb85"
                     android:textSize="15sp" />
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="客服电话:"
+                    android:textColor="#cfcb85"
+                    android:layout_toLeftOf="@id/tv_service_phone"
+                    android:layout_centerInParent="true"
+                    android:textSize="15sp"
+                    />
             </RelativeLayout>
 
             <RelativeLayout
