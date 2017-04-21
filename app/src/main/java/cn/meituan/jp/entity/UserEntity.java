@@ -2,6 +2,8 @@ package cn.meituan.jp.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 
+import java.util.List;
+
 /**
  * Created by 11608 on 2017/4/17.
  */
@@ -66,22 +68,25 @@ public class UserEntity {
     @JSONField(name = "money")
     private int money;
 
+    public List<AddressEntity> getAddressEntityList() {
+        return addressEntityList;
+    }
+
+    public void setAddressEntityList(List<AddressEntity> addressEntityList) {
+        this.addressEntityList = addressEntityList;
+    }
+
     @JSONField(name = "phone")
+
     private String phone;
     @JSONField(name = "address")
-    private AddressEntity addressEntity;
+    private List<AddressEntity> addressEntityList;
 
     public int getId() {
         return id;
     }
 
-    public AddressEntity getAddressEntity() {
-        return addressEntity;
-    }
 
-    public void setAddressEntity(AddressEntity addressEntity) {
-        this.addressEntity = addressEntity;
-    }
 
     public void setId(int id) {
         this.id = id;

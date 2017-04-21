@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|center_vertical"
         android:visibility="gone"
-        style="@style/text_666666_12"
+        style="@style/text_666666_14"
         android:layout_marginRight="12dp"
         />
 

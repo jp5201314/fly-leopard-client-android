@@ -37,7 +37,10 @@ package cn.meituan.jp;
 
  // 发起评论
  Route::post('/orders/{order}/users/{user}/comments', 'User\UserController@publishComment');
+ // 下订单
+ Route::post('/foods/{food}/users/{user}/placeOrder', 'User\UserController@placeOrder');
  */
+
 public class Api {
     /**
      * 登录

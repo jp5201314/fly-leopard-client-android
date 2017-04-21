@@ -1,11 +1,9 @@
 package cn.meituan.jp.fragment;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +16,6 @@ import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -109,6 +105,9 @@ public class MineFragment extends BaseFragment {
     TextView tvServicePhone;
     private int isLogined;
 
+    private int id;
+    private String password;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -121,6 +120,8 @@ public class MineFragment extends BaseFragment {
             Picasso.with(getActivity()).load("http://i2.sanwen8.cn/doc/1609/805-160922092H0-51.jpg").resize(100, 80).centerCrop().into(ivHeadImage);
             init();
         }
+        id = JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id");
+        password = UserSharedPreference.getInstance().getPassword();
         return view;
     }
 
@@ -137,9 +138,8 @@ public class MineFragment extends BaseFragment {
             return;
         } else {
             Intent intent = new Intent(getActivity(), MyAccountActivity.class);
-            intent.putExtra("id", JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id"));
-            Log.i("FSLog", JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id") + "");
-            intent.putExtra("password", UserSharedPreference.getInstance().getPassword());
+            intent.putExtra("id", id);
+            intent.putExtra("password", password);
             startActivity(intent);
         }
     }
@@ -228,7 +228,9 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-            startActivity(new Intent(getActivity(), MyAddressActivity.class));
+            Intent intent = new Intent(getActivity(), MyAddressActivity.class);
+            intent.putExtra("id", id);
+            startActivity(intent);
         }
     }
 
@@ -292,8 +294,8 @@ public class MineFragment extends BaseFragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onExitCurrentAccount(ExitLoginEvent event){
-        if(-1==event.getType()){
+    public void onExitCurrentAccount(ExitLoginEvent event) {
+        if (-1 == event.getType()) {
             tvLoginRegister.setClickable(true);
         }
     }
