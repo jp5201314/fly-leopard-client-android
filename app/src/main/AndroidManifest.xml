@@ -178,7 +178,8 @@
             android:name=".activity.FoodDetailActivity"
             android:screenOrientation="userPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.RaiseAddressActivity"></activity>
+        <activity android:name=".activity.RaiseAddressActivity" />
+        <activity android:name=".activity.EvaluationListActivity"></activity>
     </application>
 
 </manifest>
