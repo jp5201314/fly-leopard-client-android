@@ -88,7 +88,10 @@ public class LoginFragment extends BaseFragment {
                 UserSharedPreference.getInstance().setIsLogined(status);
                 UserSharedPreference.getInstance().setPhoneAndPassword(name, password);
                 JSONObject data = jsonObject.getJSONObject("data");
-                UserSharedPreference.getInstance().setUserJsonString(data.toJSONString());
+                UserSharedPreference.getInstance().setBalance(data.getIntValue("money"));
+                UserSharedPreference.getInstance().setId(data.getIntValue("id"));
+                UserSharedPreference.getInstance().setPhone(data.getString("phone"));
+                UserSharedPreference.getInstance().setNickName(data.getString("nick_name"));
                 getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
             }

@@ -105,5 +105,11 @@ public class Api {
      * 发起评论
      */
 
-    public static final String SENDCOMMENTS = "orders/s%/users/%s/comments";
+    public static final String SENDCOMMENTS = "orders/%s/users/%s/comments";
+
+    /**
+     * 下订单
+     */
+
+    public static final String PALCEORDER = "/foods/%s/users/%s/placeOrder";
 }

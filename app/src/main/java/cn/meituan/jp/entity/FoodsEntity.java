@@ -65,6 +65,8 @@ public class FoodsEntity implements Parcelable {
     public FoodsEntity(){
 
     }
+
+
     protected FoodsEntity(Parcel in) {
         id = in.readInt();
         shopId = in.readInt();
@@ -73,6 +75,8 @@ public class FoodsEntity implements Parcelable {
         price = in.readInt();
         content = in.readString();
         photo = in.readString();
+        shop = in.readParcelable(BusinessEntity.class.getClassLoader());
+        type = in.readParcelable(FoodTypeEntity.class.getClassLoader());
     }
 
     public static final Creator<FoodsEntity> CREATOR = new Creator<FoodsEntity>() {
@@ -166,6 +170,7 @@ public class FoodsEntity implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+
         parcel.writeInt(id);
         parcel.writeInt(shopId);
         parcel.writeInt(typeId);
@@ -173,5 +178,9 @@ public class FoodsEntity implements Parcelable {
         parcel.writeInt(price);
         parcel.writeString(content);
         parcel.writeString(photo);
+        parcel.writeParcelable(shop, i);
+        parcel.writeParcelable(type, i);
     }
+
+
 }

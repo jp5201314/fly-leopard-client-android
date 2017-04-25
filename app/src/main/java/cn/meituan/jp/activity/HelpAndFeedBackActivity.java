@@ -1,5 +1,6 @@
 package cn.meituan.jp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,6 +25,9 @@ public class HelpAndFeedBackActivity extends BaseActivity {
         this.setStatusBarColor(R.color.color_black_0e1214);
 
         tvTitle.setText("帮助与反馈");
+        Intent intent = new Intent(this,HomePageCarouselWebViewActivity.class);
+        intent.putExtra("url","http://waimai.meituan.com/help/feedback");
+        startActivity(intent);
     }
 
     @OnClick(R.id.ib_back)

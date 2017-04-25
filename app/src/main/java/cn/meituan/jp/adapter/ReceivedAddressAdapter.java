@@ -2,23 +2,27 @@ package cn.meituan.jp.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.meituan.jp.R;
 import cn.meituan.jp.entity.AddressEntity;
 import cn.meituan.jp.entity.UserEntity;
+import cn.meituan.jp.event.AddressEvent;
 
 /**
  * Created by 11608 on 2017/4/20.
  */
 
 public class ReceivedAddressAdapter extends RecyclerView.Adapter {
+
 
     private Context context;
 
@@ -27,7 +31,6 @@ public class ReceivedAddressAdapter extends RecyclerView.Adapter {
     public ReceivedAddressAdapter(Context context, UserEntity entity) {
         this.context = context;
         this.entity = entity;
-        Log.i("FSLog", entity.toString());
     }
 
     @Override
@@ -36,12 +39,18 @@ public class ReceivedAddressAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        AddressEntity addressEntity = entity.getAddressEntityList().get(position);
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        final AddressEntity addressEntity = entity.getAddressEntityList().get(position);
         if (holder instanceof ViewHolder) {
             ((ViewHolder) holder).tvAddress.setText(addressEntity.getAddress());
             ((ViewHolder) holder).tvName.setText(entity.getName() + "   先生");
             ((ViewHolder) holder).tvPhoneNum.setText(entity.getPhone());
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    EventBus.getDefault().post(new AddressEvent(entity.getName(),entity.getPhone(),addressEntity.getAddress()));
+                }
+            });
         }
     }
 
@@ -57,6 +66,8 @@ public class ReceivedAddressAdapter extends RecyclerView.Adapter {
         TextView tvName;
         @Bind(R.id.tv_phone_num)
         TextView tvPhoneNum;
+        @Bind(R.id.iv_checked)
+        ImageView ivChecked;
 
         public ViewHolder(View itemView) {
             super(itemView);

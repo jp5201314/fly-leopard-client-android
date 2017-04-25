@@ -178,7 +178,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="我的评价"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -213,7 +213,7 @@
                     android:layout_height="15dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/icon_order_mycollection" />
+                    android:background="@drawable/icon_order_collection" />
 
                 <TextView
                     android:id="@+id/tv_myCollection"
@@ -222,7 +222,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="我的收藏"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -258,7 +258,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="我的地址"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -294,7 +294,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="分享有礼"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView

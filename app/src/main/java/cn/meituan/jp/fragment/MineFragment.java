@@ -116,12 +116,17 @@ public class MineFragment extends BaseFragment {
         isLogined = UserSharedPreference.getInstance().getIsLogined();
         if (isLogined == 0) {
             tvLoginRegister.setClickable(false);
-            tvLoginRegister.setText(JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getString("nick_name"));
+            tvLoginRegister.setText(UserSharedPreference.getInstance().getNickName());
             Picasso.with(getActivity()).load("http://i2.sanwen8.cn/doc/1609/805-160922092H0-51.jpg").resize(100, 80).centerCrop().into(ivHeadImage);
             init();
+            id = UserSharedPreference.getInstance().getId();
+            password = UserSharedPreference.getInstance().getPassword();
+        }else{
+            ivHeadImage.setImageResource(R.drawable.icon_mine_head);
+            tvLoginRegister.setClickable(true);
+            tvLoginRegister.setText("注册/登录");
+            back();
         }
-        id = JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id");
-        password = UserSharedPreference.getInstance().getPassword();
         return view;
     }
 
@@ -166,6 +171,15 @@ public class MineFragment extends BaseFragment {
         tvMyAddress.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
         tvMyShare.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
     }
+    //初始化操作
+    private void back() {
+        tvMyEvaluation.setTextColor(getActivity().getResources().getColor(R.color.color_gray_8f8d8c));
+        tvMyCollection.setTextColor(getActivity().getResources().getColor(R.color.color_gray_8f8d8c));
+        tvMyAddress.setTextColor(getActivity().getResources().getColor(R.color.color_gray_8f8d8c));
+        tvMyShare.setTextColor(getActivity().getResources().getColor(R.color.color_gray_8f8d8c));
+    }
+
+
 
     @OnClick(R.id.rl_myWallet)
     public void toRlMyWallet() {
@@ -229,7 +243,6 @@ public class MineFragment extends BaseFragment {
             return;
         } else {
             Intent intent = new Intent(getActivity(), MyAddressActivity.class);
-            intent.putExtra("id", id);
             startActivity(intent);
         }
     }
@@ -296,7 +309,10 @@ public class MineFragment extends BaseFragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onExitCurrentAccount(ExitLoginEvent event) {
         if (-1 == event.getType()) {
+            ivHeadImage.setImageResource(R.drawable.icon_mine_head);
             tvLoginRegister.setClickable(true);
+            tvLoginRegister.setText("注册/登录");
+            back();
         }
     }
 

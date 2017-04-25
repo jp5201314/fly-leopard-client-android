@@ -4,6 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="cn.meituan.jp.activity.MyCollectionActivity">
 <include layout="@layout/toolbar_title"/>
+
+    <LinearLayout
+        android:id="@+id/ll_no_collection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon_no_collection"
+            />
+        <TextView
+            style="@style/text_666666_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="你还没有收藏的商家~" />
+
+    </LinearLayout>
+
 </LinearLayout>

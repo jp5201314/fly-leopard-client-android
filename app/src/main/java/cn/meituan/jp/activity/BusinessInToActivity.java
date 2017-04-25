@@ -1,5 +1,6 @@
 package cn.meituan.jp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -22,9 +23,10 @@ public class BusinessInToActivity extends BaseActivity {
         setContentView(R.layout.activity_business_in_to);
         ButterKnife.bind(this);
         this.setStatusBarColor(R.color.color_black_0e1214);
-
-
         tvTitle.setText("商家入驻");
+        Intent intent = new Intent(this,HomePageCarouselWebViewActivity.class);
+        intent.putExtra("url","http://waimai.meituan.com/contact/contactus");
+        startActivity(intent);
     }
 
     @OnClick(R.id.ib_back)

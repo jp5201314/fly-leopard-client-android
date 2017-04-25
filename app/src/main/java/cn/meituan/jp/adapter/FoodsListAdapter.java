@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,9 +21,12 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.meituan.jp.R;
+import cn.meituan.jp.UserSharedPreference;
+import cn.meituan.jp.activity.CommitOrderActivity;
 import cn.meituan.jp.activity.FoodDetailActivity;
+import cn.meituan.jp.activity.LoginRegisterActivity;
 import cn.meituan.jp.entity.FoodsEntity;
-import cn.meituan.jp.event.SelectGoodsEvent;
+import cn.meituan.jp.event.UnLoginEvent;
 import cn.meituan.jp.listener.OnItemClickListener;
 
 /**
@@ -30,6 +34,7 @@ import cn.meituan.jp.listener.OnItemClickListener;
  */
 
 public class FoodsListAdapter extends RecyclerView.Adapter {
+
 
 
     private Context context;
@@ -52,12 +57,24 @@ public class FoodsListAdapter extends RecyclerView.Adapter {
         if (holder instanceof ViewHolder) {
             Picasso.with(context).load(entity.getPhoto()).resize(200, 160).centerCrop().into(((ViewHolder) holder).ivFoodImage);
             ((ViewHolder) holder).tvFoodInfo.setText(entity.getContent());
-            ((ViewHolder) holder).tvFoodPrice.setText(String.format(((ViewHolder) holder).tvFoodPrice.getText().toString(),entity.getPrice()));
+            ((ViewHolder) holder).tvFoodPrice.setText(String.format(((ViewHolder) holder).tvFoodPrice.getText().toString(), entity.getPrice()));
             ((ViewHolder) holder).tvFoodName.setText(entity.getName());
-            ((ViewHolder) holder).btnAddShoppingCart.setOnClickListener(new View.OnClickListener() {
+            ((ViewHolder) holder).btnToCommit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    EventBus.getDefault().post(new SelectGoodsEvent(entity.getName(), entity.getPrice()));
+                   /* EventBus.getDefault().post(new SelectGoodsEvent(entity.getName(), entity.getPrice()));*/
+                   if(UserSharedPreference.getInstance().getIsLogined()==0){
+                       Intent intent = new Intent(context, CommitOrderActivity.class);
+                       intent.putExtra("id", entity.getId());
+                       intent.putExtra("name", entity.getName());
+                       intent.putExtra("price", entity.getPrice());
+                       intent.putExtra("shop_name", entity.getShop().getName());
+                       context.startActivity(intent);
+                   }else{
+                       Toast.makeText(context,"你还没有登录，请你先登录~",Toast.LENGTH_SHORT).show();
+                       context.startActivity(new Intent(context,LoginRegisterActivity.class));
+                   }
+
                 }
             });
 
@@ -66,6 +83,7 @@ public class FoodsListAdapter extends RecyclerView.Adapter {
                 public void onItemClick(int position, FoodsEntity foodsEntity) {
                     Intent intent = new Intent(context, FoodDetailActivity.class);
                     intent.putExtra("food", foodsEntity);
+                    Log.i("FSLog",foodsEntity.getShop().getName());
                     context.startActivity(intent);
                 }
             });
@@ -89,9 +107,8 @@ public class FoodsListAdapter extends RecyclerView.Adapter {
         TextView tvFoodInfo;
         @Bind(R.id.tv_food_price)
         TextView tvFoodPrice;
-        @Bind(R.id.btn_add_shopping_cart)
-        Button btnAddShoppingCart;
-
+        @Bind(R.id.btn_to_commit)
+        Button btnToCommit;
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);

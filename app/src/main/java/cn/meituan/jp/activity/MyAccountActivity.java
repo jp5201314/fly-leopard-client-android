@@ -115,14 +115,18 @@ public class MyAccountActivity extends BaseActivity {
 
     @OnClick(R.id.btn_exit_current_account)
     public void toExitCurrentAccount() {
+        ivHeadImage.setImageResource(R.drawable.icon_mine_head);
+        tvUserName.setText("");
+        tvPassword.setText("未设置");
+        tvPhoneNum.setText("");
         UserSharedPreference.getInstance().removeLoginMsg();
         EventBus.getDefault().post(new ExitLoginEvent(-1));
+        startActivity(new Intent(this,MainActivity.class));
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
-
     }
 }
