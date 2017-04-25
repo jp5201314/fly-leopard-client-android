@@ -265,4 +265,9 @@
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">#ff0020</item>
     </style>
+
+    <style name="myEditTextStyle" parent="Theme.AppCompat.Light">
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/color_white_ffffff</item>
+        <item name="colorControlNormal">@color/color_white_ffffff_alpha_60</item>
+    </style>
 </resources>

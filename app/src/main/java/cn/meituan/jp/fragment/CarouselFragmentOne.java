@@ -33,7 +33,7 @@ public class CarouselFragmentOne extends BaseFragment {
     @OnClick(R.id.iv_carousel_one)
     public void onClick(){
         Intent intent = new Intent(context,HomePageCarouselWebViewActivity.class);
-        intent.putExtra("url","http://i.waimai.meituan.com/external/poi/508730?utm_source=5801&wmi_from=cpoiinfo");
+        intent.putExtra("url","http://i.waimai.meituan.com/restaurant/72896694403975491");
         context.startActivity(intent);
     }
 

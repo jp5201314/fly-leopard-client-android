@@ -50,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end|center"
             android:layout_marginRight="12dp"
-            android:text="订单取消" />
+            android:text="订单已支付"
+            style="@style/text_666666_10"/>
     </FrameLayout>
 
     <View

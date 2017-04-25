@@ -24,6 +24,7 @@ import cn.meituan.jp.R;
 import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.activity.BusinessInToActivity;
 import cn.meituan.jp.activity.HelpAndFeedBackActivity;
+import cn.meituan.jp.activity.HomePageCarouselWebViewActivity;
 import cn.meituan.jp.activity.LoginRegisterActivity;
 import cn.meituan.jp.activity.MessageActivity;
 import cn.meituan.jp.activity.MoreActivity;
@@ -117,7 +118,7 @@ public class MineFragment extends BaseFragment {
         if (isLogined == 0) {
             tvLoginRegister.setClickable(false);
             tvLoginRegister.setText(UserSharedPreference.getInstance().getNickName());
-            Picasso.with(getActivity()).load("http://i2.sanwen8.cn/doc/1609/805-160922092H0-51.jpg").resize(100, 80).centerCrop().into(ivHeadImage);
+            Picasso.with(getActivity()).load("http://www.th7.cn/d/file/p/2013/03/09/1dc921af6f1741e53f89ea258885c0d9.jpg").resize(100, 80).centerCrop().into(ivHeadImage);
             init();
             id = UserSharedPreference.getInstance().getId();
             password = UserSharedPreference.getInstance().getPassword();
@@ -209,7 +210,8 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-            startActivity(new Intent(getActivity(), MyCouponActivity.class));
+           startActivity(new Intent(getActivity(), MyCouponActivity.class));
+
         }
 
     }
@@ -231,7 +233,8 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-            startActivity(new Intent(getActivity(), MyCollectionActivity.class));
+
+           startActivity(new Intent(getActivity(), MyCollectionActivity.class));
         }
 
     }
@@ -253,7 +256,10 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-            startActivity(new Intent(getActivity(), MyShareActivity.class));
+            Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
+            intent.putExtra("url","http://www.quanmama.com/quan/1879317.html");
+            startActivity(intent);
+           // startActivity(new Intent(getActivity(), MyShareActivity.class));
         }
     }
 
@@ -263,7 +269,10 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-            startActivity(new Intent(getActivity(), BusinessInToActivity.class));
+            Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
+            intent.putExtra("url","http://waimai.meituan.com/contact/contactus");
+            startActivity(intent);
+            //startActivity(new Intent(getActivity(), BusinessInToActivity.class));
         }
 
     }
@@ -274,7 +283,10 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-            startActivity(new Intent(getActivity(), HelpAndFeedBackActivity.class));
+            Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
+            intent.putExtra("url","http://i.waimai.meituan.com/help/feedback");
+            startActivity(intent);
+           // startActivity(new Intent(getActivity(), HelpAndFeedBackActivity.class));
         }
 
     }
@@ -285,7 +297,10 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-            startActivity(new Intent(getActivity(), MyOnlineServiceActivity.class));
+            Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
+            intent.putExtra("url","http://i.waimai.meituan.com/static/html/faq.html");
+            startActivity(intent);
+            //startActivity(new Intent(getActivity(), MyOnlineServiceActivity.class));
         }
 
     }

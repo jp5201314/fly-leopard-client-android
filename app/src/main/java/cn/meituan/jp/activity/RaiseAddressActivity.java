@@ -1,5 +1,6 @@
 package cn.meituan.jp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -70,7 +71,7 @@ public class RaiseAddressActivity extends BaseActivity {
         SpannableString ss2 = new SpannableString("例:16号楼124室");//定义hint的值
         AbsoluteSizeSpan ass2 = new AbsoluteSizeSpan(10, true);//设置字体大小 true表示单位是sp
         ss2.setSpan(ass2, 0, ss2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        etPhone.setHint(new SpannedString(ss2));
+        etAddress.setHint(new SpannedString(ss2));
 
 
     }
@@ -110,6 +111,8 @@ public class RaiseAddressActivity extends BaseActivity {
             protected void onDataSuccess(JSONObject data) {
                 super.onDataSuccess(data);
                 toast("添加成功");
+                startActivity(new Intent(RaiseAddressActivity.this,MainActivity.class));
+                finish();
             }
 
             @Override

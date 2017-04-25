@@ -26,9 +26,7 @@ public class MyShareActivity extends BaseActivity {
 
 
         tvTitle.setText("我的分享");
-        Intent intent = new Intent(this,HomePageCarouselWebViewActivity.class);
-        intent.putExtra("url","http://api.sunflower.waimai.meituan.com/redpacket_acquire_user/grab_redpacket_page?inviteCode=36849570&passportId=202728771&userTaskId=16659903&sf_source=appmine");
-        startActivity(intent);
+
     }
 
     @OnClick(R.id.ib_back)

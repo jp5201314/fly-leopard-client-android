@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv_redpacket"
                         android:layout_centerHorizontal="true"
-                        android:text="美团红包"
+                        android:text="飞豹红包"
                         android:textColor="#252424" />
                 </RelativeLayout>
 

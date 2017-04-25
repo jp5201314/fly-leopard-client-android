@@ -25,9 +25,6 @@ public class MyCollectionActivity extends BaseActivity {
         this.setStatusBarColor(R.color.color_black_0e1214);
 
         tvTitle.setText("我的收藏");
-        Intent intent = new Intent(this,HomePageCarouselWebViewActivity.class);
-        intent.putExtra("url","http://waimai.meituan.com/favorite/restaurant");
-        startActivity(intent);
     }
 
 

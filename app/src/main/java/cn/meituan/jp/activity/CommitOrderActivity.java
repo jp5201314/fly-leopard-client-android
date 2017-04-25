@@ -151,6 +151,8 @@ public class CommitOrderActivity extends BaseActivity {
                 int balance = UserSharedPreference.getInstance().getBalance() - sum;
                 UserSharedPreference.getInstance().setBalance(balance);
                 toast("支付成功");
+                startActivity(new Intent(CommitOrderActivity.this,MainActivity.class));
+                finish();
             }
 
             @Override

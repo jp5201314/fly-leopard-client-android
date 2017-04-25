@@ -67,7 +67,7 @@ public class MyAccountActivity extends BaseActivity {
 
 
     private void getUserInfo() {
-        Picasso.with(this).load("http://i2.sanwen8.cn/doc/1609/805-160922092H0-51.jpg").resize(100,80).centerCrop().into(ivHeadImage);
+        Picasso.with(this).load("http://www.th7.cn/d/file/p/2013/03/09/1dc921af6f1741e53f89ea258885c0d9.jpg").resize(100,80).centerCrop().into(ivHeadImage);
         HttpRequest.get(Constant.getHost()+String.format(Api.PERSONALINFO,getIntent().getIntExtra("id",0)),new FlyHttpRequestCallBack(){
             @Override
             protected void onDataSuccess(JSONObject data) {
