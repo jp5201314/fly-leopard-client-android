@@ -1,5 +1,8 @@
 package cn.meituan.jp.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 import java.util.List;
@@ -8,7 +11,7 @@ import java.util.List;
  * Created by 11608 on 2017/4/17.
  */
 
-public class UserEntity {
+public class UserEntity implements Parcelable{
     /**
      * "data": {
      "id": 1,
@@ -68,6 +71,30 @@ public class UserEntity {
     @JSONField(name = "money")
     private int money;
 
+    public UserEntity() {
+    }
+
+    protected UserEntity(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        nickName = in.readString();
+        money = in.readInt();
+        phone = in.readString();
+    }
+
+    public static final Creator<UserEntity> CREATOR = new Creator<UserEntity>() {
+        @Override
+        public UserEntity createFromParcel(Parcel in) {
+            return new UserEntity(in);
+        }
+
+        @Override
+        public UserEntity[] newArray(int size) {
+            return new UserEntity[size];
+        }
+    };
+
+
     public List<AddressEntity> getAddressEntityList() {
         return addressEntityList;
     }
@@ -122,5 +149,19 @@ public class UserEntity {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeString(nickName);
+        parcel.writeInt(money);
+        parcel.writeString(phone);
     }
 }

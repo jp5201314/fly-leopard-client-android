@@ -25,7 +25,7 @@ public class Grid1Listener implements AdapterView.OnItemClickListener {
         switch (i) {
             case 0:
                 intent.putExtra("topic", "美食");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72807290364720249");
+                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72855183546062410");
                 context.startActivity(intent);
                 break;
             case 1:
