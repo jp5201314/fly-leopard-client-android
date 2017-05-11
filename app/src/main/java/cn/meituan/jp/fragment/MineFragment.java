@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSONObject;
 import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -22,8 +21,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
 import cn.meituan.jp.UserSharedPreference;
-import cn.meituan.jp.activity.BusinessInToActivity;
-import cn.meituan.jp.activity.HelpAndFeedBackActivity;
 import cn.meituan.jp.activity.HomePageCarouselWebViewActivity;
 import cn.meituan.jp.activity.LoginRegisterActivity;
 import cn.meituan.jp.activity.MessageActivity;
@@ -33,11 +30,10 @@ import cn.meituan.jp.activity.MyAddressActivity;
 import cn.meituan.jp.activity.MyCollectionActivity;
 import cn.meituan.jp.activity.MyCouponActivity;
 import cn.meituan.jp.activity.MyEvaluationActivity;
-import cn.meituan.jp.activity.MyOnlineServiceActivity;
 import cn.meituan.jp.activity.MyRedPacketActivity;
-import cn.meituan.jp.activity.MyShareActivity;
 import cn.meituan.jp.activity.MyWalletActivity;
 import cn.meituan.jp.event.ExitLoginEvent;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by 11608 on 2017/4/13.
@@ -46,8 +42,6 @@ import cn.meituan.jp.event.ExitLoginEvent;
 public class MineFragment extends BaseFragment {
 
 
-    @Bind(R.id.iv_head_image)
-    ImageView ivHeadImage;
     @Bind(R.id.iv_msg)
     ImageView ivMsg;
     @Bind(R.id.tv_login_register)
@@ -104,6 +98,8 @@ public class MineFragment extends BaseFragment {
     RelativeLayout rlMore;
     @Bind(R.id.tv_service_phone)
     TextView tvServicePhone;
+    @Bind(R.id.iv_head_image)
+    CircleImageView ivHeadImage;
     private int isLogined;
 
     private int id;
@@ -118,11 +114,11 @@ public class MineFragment extends BaseFragment {
         if (isLogined == 0) {
             tvLoginRegister.setClickable(false);
             tvLoginRegister.setText(UserSharedPreference.getInstance().getNickName());
-            Picasso.with(getActivity()).load("http://www.th7.cn/d/file/p/2013/03/09/1dc921af6f1741e53f89ea258885c0d9.jpg").resize(100, 80).centerCrop().into(ivHeadImage);
+            Picasso.with(getActivity()).load("http://www.th7.cn/d/file/p/2013/03/09/1dc921af6f1741e53f89ea258885c0d9.jpg").placeholder(R.drawable.icon_mine_head).error(R.drawable.icon_mine_head).resize(100, 80).centerCrop().into(ivHeadImage);
             init();
             id = UserSharedPreference.getInstance().getId();
             password = UserSharedPreference.getInstance().getPassword();
-        }else{
+        } else {
             ivHeadImage.setImageResource(R.drawable.icon_mine_head);
             tvLoginRegister.setClickable(true);
             tvLoginRegister.setText("注册/登录");
@@ -172,6 +168,7 @@ public class MineFragment extends BaseFragment {
         tvMyAddress.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
         tvMyShare.setTextColor(getActivity().getResources().getColor(R.color.color_black_1a1919));
     }
+
     //初始化操作
     private void back() {
         tvMyEvaluation.setTextColor(getActivity().getResources().getColor(R.color.color_gray_8f8d8c));
@@ -179,7 +176,6 @@ public class MineFragment extends BaseFragment {
         tvMyAddress.setTextColor(getActivity().getResources().getColor(R.color.color_gray_8f8d8c));
         tvMyShare.setTextColor(getActivity().getResources().getColor(R.color.color_gray_8f8d8c));
     }
-
 
 
     @OnClick(R.id.rl_myWallet)
@@ -210,7 +206,7 @@ public class MineFragment extends BaseFragment {
             jumpLogin();
             return;
         } else {
-           startActivity(new Intent(getActivity(), MyCouponActivity.class));
+            startActivity(new Intent(getActivity(), MyCouponActivity.class));
 
         }
 
@@ -234,7 +230,7 @@ public class MineFragment extends BaseFragment {
             return;
         } else {
 
-           startActivity(new Intent(getActivity(), MyCollectionActivity.class));
+            startActivity(new Intent(getActivity(), MyCollectionActivity.class));
         }
 
     }
@@ -257,9 +253,9 @@ public class MineFragment extends BaseFragment {
             return;
         } else {
             Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
-            intent.putExtra("url","http://www.quanmama.com/quan/1879317.html");
+            intent.putExtra("url", "http://www.quanmama.com/quan/1879317.html");
             startActivity(intent);
-           // startActivity(new Intent(getActivity(), MyShareActivity.class));
+            // startActivity(new Intent(getActivity(), MyShareActivity.class));
         }
     }
 
@@ -270,7 +266,7 @@ public class MineFragment extends BaseFragment {
             return;
         } else {
             Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
-            intent.putExtra("url","http://waimai.meituan.com/contact/contactus");
+            intent.putExtra("url", "http://waimai.meituan.com/contact/contactus");
             startActivity(intent);
             //startActivity(new Intent(getActivity(), BusinessInToActivity.class));
         }
@@ -284,9 +280,9 @@ public class MineFragment extends BaseFragment {
             return;
         } else {
             Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
-            intent.putExtra("url","http://i.waimai.meituan.com/help/feedback");
+            intent.putExtra("url", "http://i.waimai.meituan.com/help/feedback");
             startActivity(intent);
-           // startActivity(new Intent(getActivity(), HelpAndFeedBackActivity.class));
+            // startActivity(new Intent(getActivity(), HelpAndFeedBackActivity.class));
         }
 
     }
@@ -298,7 +294,7 @@ public class MineFragment extends BaseFragment {
             return;
         } else {
             Intent intent = new Intent(getActivity(), HomePageCarouselWebViewActivity.class);
-            intent.putExtra("url","http://i.waimai.meituan.com/static/html/faq.html");
+            intent.putExtra("url", "http://i.waimai.meituan.com/static/html/faq.html");
             startActivity(intent);
             //startActivity(new Intent(getActivity(), MyOnlineServiceActivity.class));
         }
