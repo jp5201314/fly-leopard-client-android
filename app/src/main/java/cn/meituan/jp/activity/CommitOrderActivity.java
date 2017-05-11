@@ -77,10 +77,9 @@ public class CommitOrderActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         this.setStatusBarColor(R.color.color_black_0e1214);
         setContentView(R.layout.activity_commit_order);
-        tvTitle.setText("下单");
-
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
+        tvTitle.setText("下单");
         balance = UserSharedPreference.getInstance().getBalance();
         tvName.setText(UserSharedPreference.getInstance().getUserName());
         tvPhoneNum.setText(UserSharedPreference.getInstance().getPhone());
