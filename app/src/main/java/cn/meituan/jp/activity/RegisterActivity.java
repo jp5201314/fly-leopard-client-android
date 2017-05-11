@@ -74,7 +74,9 @@ public class RegisterActivity extends BaseActivity {
         } else {
             params.addFormDataPart("pass", password);
         }
-
+/**
+ * 发送注册的相关信息到服务器进行注册
+ */
         HttpRequest.post(Constant.getHost() + Api.REGISTER, params, new JsonHttpRequestCallback() {
             @Override
             protected void onSuccess(JSONObject jsonObject) {

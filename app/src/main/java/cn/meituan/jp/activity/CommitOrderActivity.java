@@ -75,9 +75,9 @@ public class CommitOrderActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_commit_order);
-
         this.setStatusBarColor(R.color.color_black_0e1214);
+        setContentView(R.layout.activity_commit_order);
+        tvTitle.setText("下单");
 
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
@@ -138,6 +138,10 @@ public class CommitOrderActivity extends BaseActivity {
 
     @OnClick(R.id.btn_to_commit)
     public void toCommitOrderAndPay() {
+        if(num==0){
+            toast("请输入购买数量");
+            return;
+        }
         if(balance<sum){
             toast("待支付金额应小于余额");
             return;
