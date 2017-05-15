@@ -1,10 +1,12 @@
 package cn.meituan.jp.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -46,15 +48,8 @@ public class HomePageCarouselWebViewActivity extends BaseActivity {
         //自适应屏幕
         wv.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         wv.getSettings().setLoadWithOverviewMode(true);
-        wv.loadUrl(getIntent().getStringExtra("url"));
         tvTitle.setText(getIntent().getStringExtra("topic"));
-        wv.setWebViewClient(new WebViewClient(){
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                tvTitle.setVisibility(View.GONE);
-            }
-        });
+        wv.loadUrl(getIntent().getStringExtra("url"));
     }
 
 

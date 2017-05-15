@@ -62,11 +62,12 @@ public class MyAddressActivity extends BaseActivity {
         tvAddInfo.setVisibility(View.VISIBLE);
         rvAddress.addItemDecoration(new RecyclerViewDivider(
                 this, LinearLayoutManager.VERTICAL));
-       /* rvAddress.addItemDecoration(new RecyclerViewDivider(
-                this, LinearLayoutManager.VERTICAL, 10, getResources().getColor(R.color.color_black_0e1214)));*/
         getAddress();
     }
 
+    /**
+     * 获取收货地址列表
+     */
     private void getAddress() {
         HttpRequest.get(Constant.getHost() + String.format(Api.PERSONALINFO, UserSharedPreference.getInstance().getId()), new FlyHttpRequestCallBack() {
             @Override
@@ -84,7 +85,6 @@ public class MyAddressActivity extends BaseActivity {
                 llNoAddress.setVisibility(View.VISIBLE);
             }
         });
-
     }
 
     @OnClick(R.id.ib_back)

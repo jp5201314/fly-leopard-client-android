@@ -3,8 +3,9 @@ package cn.meituan.jp;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.text.TextUtils;
 import android.widget.Toast;
+
+import com.orhanobut.logger.Logger;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -28,7 +29,7 @@ public class FlyLeopardApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        Logger.init("fly-leopard").hideThreadInfo();
         INSTANCE = this;
         mContext = getApplicationContext();
         initOkHttpFinal();

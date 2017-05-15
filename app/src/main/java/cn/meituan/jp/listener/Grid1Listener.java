@@ -25,42 +25,42 @@ public class Grid1Listener implements AdapterView.OnItemClickListener {
         switch (i) {
             case 0:
                 intent.putExtra("topic", "美食");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72855183546062410");
+                intent.putExtra("url", "http://i.waimai.meituan.com/external/poi/542536?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
             case 1:
                 intent.putExtra("topic", "超市");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72882108695029287");
+                intent.putExtra("url", "http://i.waimai.meituan.com/external/poi/524153?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
             case 2:
                 intent.putExtra("topic", "鲜果购");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72764800253267143");
+                intent.putExtra("url", "http://i.waimai.meituan.com/external/poi/854246?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
             case 3:
                 intent.putExtra("topic", "甜点饮品");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72654071701428285");
+                intent.putExtra("url", " http://i.waimai.meituan.com/external/poi/524816?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
             case 4:
                 intent.putExtra("topic", "正餐优选");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72801732677067155");
+                intent.putExtra("url", "http://i.waimai.meituan.com/external/poi/528473?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
             case 5:
                 intent.putExtra("topic", "飞豹专送");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72775941398444772");
+                intent.putExtra("url", "http://i.waimai.meituan.com/external/poi/524136?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
             case 6:
                 intent.putExtra("topic", "创意西餐");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72663194211946655");
+                intent.putExtra("url", "http://i.waimai.meituan.com/external/poi/524546?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
             case 7:
                 intent.putExtra("topic", "民间小吃");
-                intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72622052720231325");
+                intent.putExtra("url", "http://i.waimai.meituan.com/external/poi/524817?utm_source=7458&wmi_from=cpoiinfo");
                 context.startActivity(intent);
                 break;
         }

@@ -61,4 +61,5 @@ dependencies {
     compile 'junit:junit:4.12'
     testCompile 'junit:junit:4.12'
     compile 'de.hdodenhof:circleimageview:2.0.0'
+    compile 'com.orhanobut:logger:1.11'
 }

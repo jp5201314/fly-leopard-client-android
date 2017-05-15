@@ -24,6 +24,7 @@ public class CarouselFragmentTre extends BaseFragment {
     public CarouselFragmentTre(Context context) {
         this.context = context;
     }
+    public CarouselFragmentTre(){}
 
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class CarouselFragmentTre extends BaseFragment {
     @OnClick(R.id.iv_carousel_tre)
     public void onClick() {
         Intent intent = new Intent(context, HomePageCarouselWebViewActivity.class);
-        intent.putExtra("url", "http://i.waimai.meituan.com/restaurant/72673721176780253");
+        intent.putExtra("url", "http://i.meituan.com/firework/160608ouzhoubeicipian?activity_id=2811");
         context.startActivity(intent);
     }
 
