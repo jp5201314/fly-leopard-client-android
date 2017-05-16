@@ -67,7 +67,13 @@
         <activity
             android:name=".activity.HomePageCarouselWebViewActivity"
             android:screenOrientation="userPortrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"></action>
+                <data android:scheme="http"></data>
+                <category android:name="android.intent.category.DEFAULT"></category>
+            </intent-filter>
+        </activity>
         <!-- 美食.美团超市的详情 -->
         <activity
             android:name=".activity.HomePageGrid1DetailActivity"
@@ -178,7 +184,8 @@
             android:name=".activity.FoodDetailActivity"
             android:screenOrientation="userPortrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.RaiseAddressActivity"></activity>
+        <activity android:name=".activity.RaiseAddressActivity" />
+        <activity android:name=".activity.EvaluationListActivity"></activity>
     </application>
 
 </manifest>

@@ -20,7 +20,7 @@ public class DateUtils {
         return date;
     }
 
-    //时间戳转化为StingDate
+    //时间戳转化为StringDate
     public static String timestampToDate(long timestamp, String format) {
         if (null == format) {
             format = "yyyy-MM-dd HH:mm:ss";

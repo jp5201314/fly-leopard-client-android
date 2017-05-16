@@ -1,5 +1,8 @@
 package cn.meituan.jp.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 import java.io.Serializable;
@@ -8,7 +11,7 @@ import java.io.Serializable;
  * Created by 11608 on 2017/4/14.
  */
 
-public class BusinessEntity implements Serializable{
+public class BusinessEntity implements Parcelable{
 /**
  *   "id": 1,
  "name": "明洞炸鸡店",
@@ -50,6 +53,35 @@ public class BusinessEntity implements Serializable{
     private String phone;
     @JSONField(name = "sale_month")
     private int saleMonth;
+
+    public BusinessEntity(){}
+    protected BusinessEntity(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        starNum = in.readInt();
+        packingFee = in.readInt();
+        minFee = in.readInt();
+        photo = in.readString();
+        content = in.readString();
+        pointX = in.readDouble();
+        pointY = in.readDouble();
+        time = in.readInt();
+        distance = in.readDouble();
+        phone = in.readString();
+        saleMonth = in.readInt();
+    }
+
+    public static final Creator<BusinessEntity> CREATOR = new Creator<BusinessEntity>() {
+        @Override
+        public BusinessEntity createFromParcel(Parcel in) {
+            return new BusinessEntity(in);
+        }
+
+        @Override
+        public BusinessEntity[] newArray(int size) {
+            return new BusinessEntity[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -153,5 +185,27 @@ public class BusinessEntity implements Serializable{
 
     public void setSaleMonth(int saleMonth) {
         this.saleMonth = saleMonth;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeInt(starNum);
+        parcel.writeInt(packingFee);
+        parcel.writeInt(minFee);
+        parcel.writeString(photo);
+        parcel.writeString(content);
+        parcel.writeDouble(pointX);
+        parcel.writeDouble(pointY);
+        parcel.writeInt(time);
+        parcel.writeDouble(distance);
+        parcel.writeString(phone);
+        parcel.writeInt(saleMonth);
     }
 }

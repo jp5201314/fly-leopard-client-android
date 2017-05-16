@@ -37,16 +37,17 @@ public class RegisterActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.setStatusBarColor(R.color.color_black_0e1214);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
     }
 
     @OnClick(R.id.btn_register)
-    public void toRegister(){
-         String name = etName.getText().toString();
-         String nickName = etNickName.getText().toString();
-         String phoneNum  = etPhoneNum.getText().toString();
-         String password = etPassword.getText().toString();
+    public void toRegister() {
+        String name = etName.getText().toString();
+        String nickName = etNickName.getText().toString();
+        String phoneNum = etPhoneNum.getText().toString();
+        String password = etPassword.getText().toString();
 
         RequestParams params = new RequestParams(this);
         if (TextUtils.isEmpty(name)) {
@@ -73,12 +74,14 @@ public class RegisterActivity extends BaseActivity {
         } else {
             params.addFormDataPart("pass", password);
         }
-
-        HttpRequest.post(Constant.getHost()+ Api.REGISTER,params,new JsonHttpRequestCallback(){
+/**
+ * 发送注册的相关信息到服务器进行注册
+ */
+        HttpRequest.post(Constant.getHost() + Api.REGISTER, params, new JsonHttpRequestCallback() {
             @Override
             protected void onSuccess(JSONObject jsonObject) {
                 super.onSuccess(jsonObject);
-                switch (jsonObject.getIntValue("status")){
+                switch (jsonObject.getIntValue("status")) {
                     case 0:
                         toast("注册成功");
                         finish();

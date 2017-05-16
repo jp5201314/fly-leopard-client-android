@@ -59,10 +59,16 @@ public class OrderFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_order_login, container, false);
         ButterKnife.bind(this, view);
         if (-1 != UserSharedPreference.getInstance().getIsLogined()) {
-
             llLoginRegister.setVisibility(View.GONE);
             btnLoginRegister.setClickable(false);
+            indicator.setVisibility(View.VISIBLE);
+            vpOrdersWaitingEvaluation.setVisibility(View.VISIBLE);
             initIndicator();
+        }else{
+            indicator.setVisibility(View.GONE);
+            vpOrdersWaitingEvaluation.setVisibility(View.GONE);
+            llLoginRegister.setVisibility(View.VISIBLE);
+            btnLoginRegister.setClickable(true);
         }
 
         return view;

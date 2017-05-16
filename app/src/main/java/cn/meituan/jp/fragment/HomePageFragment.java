@@ -37,12 +37,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
+import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.activity.HomePageSearchActivity;
 import cn.meituan.jp.adapter.HomePageRecycleViewAdapter;
 import cn.meituan.jp.adapter.HomePageRoundAdapter;
 import cn.meituan.jp.datasource.BusinessDataSource;
 import cn.meituan.jp.entity.BusinessEntity;
-import cn.meituan.jp.event.AddressEvent;
+import cn.meituan.jp.event.LocationEvent;
 import cn.meituan.jp.listener.Grid1Listener;
 import cn.meituan.jp.listener.Grid2Listener;
 import cn.meituan.jp.location.listener.BaiduLocation;
@@ -119,9 +120,11 @@ public class HomePageFragment extends BaseFragment {
         mvc.setAdapter(new IDataAdapter<List<BusinessEntity>>() {
             @Override
             public void notifyDataChanged(List<BusinessEntity> list, boolean isRefresh) {
-                // 数据给recycleView
-                rvShow.setAdapter(new HomePageRecycleViewAdapter(getActivity(),list));
-
+                if (rvShow!=null){
+                    // 数据给recycleView
+                    rvShow.setAdapter(new HomePageRecycleViewAdapter(getActivity(),list));
+                }
+      
             }
 
             @Override
@@ -245,7 +248,8 @@ public class HomePageFragment extends BaseFragment {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEventMainThread(AddressEvent event) {
+    public void onEventMainThread(LocationEvent event) {
+        UserSharedPreference.getInstance().setAddress(event.getAddress());
         tvCurrentLocation.setText(event.getAddress());
     }
 

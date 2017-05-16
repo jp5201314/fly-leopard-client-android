@@ -9,7 +9,27 @@
     tools:context="cn.meituan.jp.activity.MyAddressActivity">
 
     <include layout="@layout/toolbar_title" />
+    <LinearLayout
+        android:id="@+id/ll_no_address"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icon_no_address"
+            />
+        <TextView
+            style="@style/text_666666_12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="你还没有收货地址~" />
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_address"
         android:layout_width="match_parent"
@@ -18,7 +38,6 @@
         android:background="@color/color_white_ffffff"
         android:choiceMode="singleChoice"
         android:fadingEdge="none"
-
         android:scrollbarStyle="outsideOverlay" />
 
     <FrameLayout

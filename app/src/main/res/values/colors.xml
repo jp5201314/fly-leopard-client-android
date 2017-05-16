@@ -5,6 +5,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_red_cc5e74">#cc5e74</color>
+    <color name="color_red_ff0000">#ff0000</color>
     <color name="color_write_ffffff">#ffffff</color>
     <color name="color_write_ddffff">#ddffff</color>
     <color name="color_white_ffffff_alpha_60">#99FFFFFF</color>
@@ -33,6 +34,7 @@
     <color name="color_gray_8b8c8d">#8B8C8D</color>
     <color name="color_gray_767474">#767474</color>
     <color name="color_gray_6e6e6f">#6E6E6F</color>
+    <color name="color_gray_8f8d8c">#8f8d8c</color>
     <color name="color_gray_666666">#666666</color>
     <color name="color_gray_5c5d5d">#5C5D5D</color>
     <color name="color_gray_4f5152">#4f5152</color>

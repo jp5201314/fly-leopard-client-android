@@ -10,6 +10,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
+import cn.meituan.jp.UserSharedPreference;
 
 public class MyWalletActivity extends BaseActivity {
 
@@ -31,8 +32,11 @@ public class MyWalletActivity extends BaseActivity {
         this.setStatusBarColor(R.color.color_black_0e1214);
         ButterKnife.bind(this);
         tvTitle.setText("我的钱包");
-        tvMoneySum.setText("余额明细");
-        tvMoneySum.setVisibility(View.VISIBLE);
+        tvAddInfo.setText("余额明细");
+        tvAddInfo.setVisibility(View.VISIBLE);
+        if (getLoginStatus()==0){
+            tvMoneySum.setText(UserSharedPreference.getInstance().getBalance()+"");
+        }
     }
 
     @Override

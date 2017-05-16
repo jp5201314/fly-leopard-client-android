@@ -1,6 +1,8 @@
 package cn.meituan.jp.fragment;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
@@ -21,6 +23,11 @@ public class BaseFragment extends Fragment implements HttpCycleContext{
     public BaseFragment(){
 
     }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     protected void setMaterialHeader(PtrClassicFrameLayout ptr) {
         RefreshHeaderView ptrHeader = new RefreshHeaderView(getActivity().getApplicationContext());
         ptrHeader.setLayoutParams(new PtrFrameLayout.LayoutParams(-1, -2));

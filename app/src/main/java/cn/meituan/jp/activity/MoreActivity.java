@@ -22,7 +22,6 @@ public class MoreActivity extends BaseActivity {
         setContentView(R.layout.activity_more);
         ButterKnife.bind(this);
         this.setStatusBarColor(R.color.color_black_0e1214);
-
         tvTitle.setText("更多");
     }
 

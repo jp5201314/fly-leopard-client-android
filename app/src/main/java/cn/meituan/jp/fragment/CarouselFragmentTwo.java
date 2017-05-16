@@ -22,6 +22,7 @@ public class CarouselFragmentTwo extends BaseFragment{
     public CarouselFragmentTwo(Context context){
         this.context = context;
     }
+    public  CarouselFragmentTwo(){}
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_carousel_two,container,false);
@@ -33,7 +34,7 @@ public class CarouselFragmentTwo extends BaseFragment{
     @OnClick(R.id.iv_carousel_two)
     public void onClick(){
         Intent intent = new Intent(context,HomePageCarouselWebViewActivity.class);
-        intent.putExtra("url","http://i.waimai.meituan.com/external/poi/508730?utm_source=5801&wmi_from=cpoiinfo");
+        intent.putExtra("url","http://i.meituan.com/firework/160704cdzhounei?activity_id=1025");
         context.startActivity(intent);
     }
 

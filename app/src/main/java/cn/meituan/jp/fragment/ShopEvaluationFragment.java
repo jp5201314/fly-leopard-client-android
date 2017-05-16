@@ -21,8 +21,10 @@ public class ShopEvaluationFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_shop_evaluation, container, false);
         ButterKnife.bind(this, view);
+
         return view;
     }
+
 
     @Override
     public void onDestroyView() {

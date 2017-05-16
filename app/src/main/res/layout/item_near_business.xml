@@ -87,6 +87,7 @@
             android:layout_alignBaseline="@+id/tv_shop_name"
             android:layout_alignParentRight="true"
             android:text="705m"
+            android:layout_marginRight="6dp"
             android:textSize="12sp" />
 
         <TextView
@@ -97,16 +98,18 @@
             android:layout_alignParentRight="true"
             android:layout_below="@+id/tv_distance"
             android:text="45分钟"
+            android:layout_marginRight="6dp"
             android:textSize="12sp" />
 
-        <ImageView
+        <Button
             android:layout_width="50dp"
             android:layout_height="18dp"
-            android:layout_alignBaseline="@id/tv_packing_fee"
+            android:text="飞豹专送"
+            style="@style/text_666666_10"
             android:layout_alignParentRight="true"
-            android:layout_below="@id/tv_time"
-            android:paddingBottom="6dp"
-            android:background="@drawable/icon_fly_leopard_express" />
+            android:layout_alignBottom="@id/tv_packing_fee"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/select_btn_orange_background" />
     </RelativeLayout>
 
     <RelativeLayout

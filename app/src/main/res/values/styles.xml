@@ -209,7 +209,10 @@
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">#8b8c8d</item>
     </style>
-
+    <style name="text_8b8c8d_10">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#8b8c8d</item>
+    </style>
     <style name="text_0e1214_12">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">#0e1214</item>
@@ -261,5 +264,10 @@
     <style name="text_ff0020_17">
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">#ff0020</item>
+    </style>
+
+    <style name="myEditTextStyle" parent="Theme.AppCompat.Light">
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/color_white_ffffff</item>
+        <item name="colorControlNormal">@color/color_white_ffffff_alpha_60</item>
     </style>
 </resources>
