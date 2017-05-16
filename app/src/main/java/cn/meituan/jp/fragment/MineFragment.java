@@ -118,10 +118,12 @@ public class MineFragment extends BaseFragment {
             tvLoginRegister.setClickable(false);
             tvLoginRegister.setText(JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getString("nick_name"));
             Picasso.with(getActivity()).load("http://i2.sanwen8.cn/doc/1609/805-160922092H0-51.jpg").resize(100, 80).centerCrop().into(ivHeadImage);
+            Picasso.with(getActivity()).load("http://i2.sanwen8.cn/doc/1609/805-160922092H0-51.jpg").resize(100, 80).centerCrop().into(ivHeadImage);
             init();
+            id = JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id");
+            password = UserSharedPreference.getInstance().getPassword();
         }
-        id = JSONObject.parseObject(UserSharedPreference.getInstance().getUserJsonString()).getIntValue("id");
-        password = UserSharedPreference.getInstance().getPassword();
+
         return view;
     }
 
