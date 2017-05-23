@@ -57,13 +57,13 @@ public class RegisterActivity extends BaseActivity {
             params.addFormDataPart("name", name);
         }
         if (TextUtils.isEmpty(nickName)) {
-            toast("请填写密码");
+            toast("请填写昵称");
             return;
         } else {
             params.addFormDataPart("nick_name", nickName);
         }
         if (TextUtils.isEmpty(phoneNum)) {
-            toast("请填写用户名");
+            toast("请填写电话号码");
             return;
         } else {
             params.addFormDataPart("phone", phoneNum);
