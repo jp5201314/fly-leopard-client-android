@@ -2,6 +2,7 @@ package cn.meituan.jp.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -40,6 +41,19 @@ public class RegisterActivity extends BaseActivity {
         this.setStatusBarColor(R.color.color_black_0e1214);
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
+
+        etPhoneNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus){
+                    etPhoneNum.setText("1");
+                }else {
+                    if(etPhoneNum.getText().toString().length()<11){
+                        toast("手机号位数有误，请重新输入!");
+                    }
+                }
+            }
+        });
     }
 
     @OnClick(R.id.btn_register)
