@@ -68,7 +68,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 
     @Override
     public void onPageSelected(int position) {
-        toast(position+"");
         switch(position){
             case 0:
                 changeHomePageState();

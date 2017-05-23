@@ -12,7 +12,7 @@ import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
-import cn.meituan.jp.event.AddressEvent;
+import cn.meituan.jp.event.LocationEvent;
 
 /**
  * Created by 11608 on 2017/4/13.
@@ -65,8 +65,8 @@ public class MyLocationListener implements BDLocationListener {
             sb.append("\naddr : ");
             sb.append(location.getAddrStr());    //获取地址信息
 
-            EventBus.getDefault().post(new AddressEvent(location.getAddrStr().split("省")[1]+">"));
-
+            EventBus.getDefault().post(new LocationEvent(location.getAddrStr().split("省")[1]+">",location.getLongitude(),location.getLatitude()));
+            //Log.i("FSLog",location.getAddrStr()+":"+location.getLongitude()+":"+location.getLatitude());
             sb.append("\ndescribe : ");
             sb.append("gps定位成功");
 
@@ -75,7 +75,8 @@ public class MyLocationListener implements BDLocationListener {
             // 网络定位结果
             sb.append("\naddr : ");
             sb.append(location.getAddrStr());    //获取地址信息
-            EventBus.getDefault().post(new AddressEvent(location.getAddrStr().split("省")[1]));
+            EventBus.getDefault().post(new LocationEvent(location.getAddrStr().split("省")[1]+">",location.getLongitude(),location.getLatitude()));
+            //Log.i("FSLog",location.getAddrStr()+":"+location.getLongitude()+":"+location.getLatitude());
             sb.append("\noperationers : ");
             sb.append(location.getOperators());    //获取运营商信息
 

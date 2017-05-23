@@ -3,7 +3,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_gray_efefef"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="cn.meituan.jp.activity.MoreActivity">
-<include layout="@layout/toolbar_title"/>
+
+    <include layout="@layout/toolbar_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="3">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="48dp"
+                android:src="@mipmap/ic_launcher6"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="v2.1.0.1704"
+                android:textColor="@color/color_orange_fcca50"
+                android:textSize="10sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信请关注:飞豹外卖"
+                style="@style/text_8b8c8d_10"
+                android:layout_marginTop="12dp"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/color_white_ffffff"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_0e1214_12"
+                android:text="正在招聘"
+                />
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="15dp"
+                android:layout_gravity="end"
+                android:background="@drawable/icon_order_in" />
+        </FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_gray_eae8db"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/text_0e1214_12"
+                android:text="喜欢飞豹外卖？去评分吧"
+                />
+            <ImageView
+                android:layout_width="8dp"
+                android:layout_height="15dp"
+                android:layout_gravity="end"
+                android:background="@drawable/icon_order_in" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
 </LinearLayout>

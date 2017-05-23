@@ -24,9 +24,6 @@
             android:text="暂无待评价订单" />
     </LinearLayout>
 
-    <include
-        android:id="@+id/in_rv"
-        layout="@layout/recycle_layout"
-        android:visibility="gone" />
+    <include layout="@layout/recycle_layout" />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package cn.meituan.jp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class MyShareActivity extends BaseActivity {
 
 
         tvTitle.setText("我的分享");
+
     }
 
     @OnClick(R.id.ib_back)

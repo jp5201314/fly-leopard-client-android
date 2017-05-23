@@ -56,31 +56,74 @@ public class UserSharedPreference {
         editor.commit();
     }
 
-    public void setPhoneAndPassword(String mobile, String password) {
-        editor.putString("name", mobile);
+    public void setPhoneAndPassword(String name, String password) {
+        editor.putString("name", name);
         editor.putString("password", password);
         editor.commit();
     }
 
-    public String getPassword(){
-        return mSharedPreference.getString("password",null);
+    public String getUserName(){
+        return mSharedPreference.getString("name",null);
     }
 
-    public void setUserJsonString(String userJsonString) {
-        editor.putString("user_json_string", userJsonString);
+
+    public String getPassword() {
+        return mSharedPreference.getString("password", null);
+    }
+
+
+    public void setShoppingCartSum(int price) {
+        editor.putInt("sum", price);
         editor.commit();
     }
 
-    public String getUserJsonString() {
-        return mSharedPreference.getString("user_json_string", null);
+    public int getShoppingCartAmount() {
+        return mSharedPreference.getInt("sum", 0);
     }
 
-    public void setShoppingCartSum(int price){
-        editor.putInt("sum",price);
+    public void setBalance(int balance) {
+        editor.putInt("balance", balance);
         editor.commit();
     }
 
-    public int getShoppingCartAmount(){
-        return mSharedPreference.getInt("sum",0);
+    public int getBalance() {
+        return mSharedPreference.getInt("balance", 0);
+    }
+
+    public void setId(int id){
+        editor.putInt("id",id);
+        editor.commit();
+    }
+
+    public int getId(){
+        return mSharedPreference.getInt("id",0);
+    }
+
+    public void setPhone(String phone){
+        editor.putString("phone",phone);
+        editor.commit();
+    }
+
+    public String getPhone(){
+        return mSharedPreference.getString("phone",null);
+        }
+
+
+    public void setAddress(String address){
+        editor.putString("address",address);
+        editor.commit();
+    }
+
+    public String getAddress(){
+        return mSharedPreference.getString("address",null);
+    }
+
+    public void setNickName(String nickName){
+        editor.putString("nick_name",nickName);
+        editor.commit();
+    }
+
+    public String getNickName(){
+        return mSharedPreference.getString("nick_name",null);
     }
 }

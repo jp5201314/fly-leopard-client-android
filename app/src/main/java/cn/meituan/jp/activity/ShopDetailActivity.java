@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.shizhefei.view.indicator.FixedIndicatorView;
@@ -18,17 +16,12 @@ import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
-import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.adapter.TabIndicatorFragmentPagerShopAdapter;
-import cn.meituan.jp.event.SelectGoodsEvent;
-import cn.meituan.jp.event.ShoppingCartSumEvent;
 
 public class ShopDetailActivity extends BaseActivity {
 
@@ -55,18 +48,6 @@ public class ShopDetailActivity extends BaseActivity {
     FixedIndicatorView indicator;
     @Bind(R.id.vp_shop_info)
     ViewPager vpShopInfo;
-    @Bind(R.id.iv_shopping_cart)
-    ImageView ivShoppingCart;
-    @Bind(R.id.tv_shopping_cate_sum)
-    TextView tvShoppingCateSum;
-    @Bind(R.id.ll_shopping_cate_sum)
-    LinearLayout llShoppingCateSum;
-    @Bind(R.id.tv_to_pay)
-    TextView tvToPay;
-    @Bind(R.id.btn_to_pay)
-    Button btnToPay;
-    @Bind(R.id.fl_purchased_food)
-    FrameLayout flPurchasedFood;
     private IndicatorViewPager indicatorViewPager;
     private IndicatorViewPager.IndicatorFragmentPagerAdapter adapter;
     private static int amount = 0;
@@ -83,7 +64,6 @@ public class ShopDetailActivity extends BaseActivity {
 
         setContentView(R.layout.activity_shop_detail);
         ButterKnife.bind(this);
-        EventBus.getDefault().register(this);
         this.setStatusBarColor(R.color.color_black_0e1214);
         getShopDetail();
 
@@ -98,20 +78,8 @@ public class ShopDetailActivity extends BaseActivity {
             Picasso.with(this).load(intent.getStringExtra("shop_head_image")).resize(100, 80).centerCrop().into(ivShopImage);
         }
         initIndicator();
-        setAmount();
     }
 
-    private void setAmount() {
-        amount = UserSharedPreference.getInstance().getShoppingCartAmount();
-        if (amount != 0) {
-            tvShoppingCateSum.setText(amount+"");
-            llShoppingCateSum.setVisibility(View.VISIBLE);
-            ivShoppingCart.setImageResource(R.drawable.icon_shopping_cart_normal);
-            tvToPay.setVisibility(View.GONE);
-            btnToPay.setVisibility(View.VISIBLE);
-        }
-        EventBus.getDefault().post(new ShoppingCartSumEvent(amount));
-    }
 
     public void initIndicator() {
         float unSelectSize = 15;
@@ -144,25 +112,8 @@ public class ShopDetailActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
         ButterKnife.unbind(this);
 
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onPurchaseShop(SelectGoodsEvent event) {
-        amount += event.getPrice();
-        UserSharedPreference.getInstance().setShoppingCartSum(amount);
-        setAmount();
-    }
-
-    @OnClick(R.id.btn_to_pay)
-    public void toPay() {
-        if (getLoginStatus() == 0) {
-            startActivity(new Intent(this, CommitOrderActivity.class));
-        } else {
-            toLoginRegister();
-        }
-
-    }
 }

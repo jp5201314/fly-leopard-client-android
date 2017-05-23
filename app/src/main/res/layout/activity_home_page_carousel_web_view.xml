@@ -11,18 +11,24 @@
 
     <ImageView
         android:id="@+id/iv_back"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="10dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="0.5dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/icon_web_back" />
+        android:background="@drawable/icon_back1" />
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/iv_back"/>
     <ImageView
         android:id="@+id/iv_share"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="11dp"
-        android:background="@drawable/icon_web_share" />
+        android:layout_marginTop="13dp"
+        android:background="@drawable/icon_share" />
 </RelativeLayout>

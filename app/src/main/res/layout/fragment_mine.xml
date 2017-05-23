@@ -19,7 +19,7 @@
                 android:layout_height="110dp"
                 android:background="@color/color_orange_fade05">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/iv_head_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
@@ -115,7 +115,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/iv_redpacket"
                         android:layout_centerHorizontal="true"
-                        android:text="美团红包"
+                        android:text="飞豹红包"
                         android:textColor="#252424" />
                 </RelativeLayout>
 
@@ -178,7 +178,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="我的评价"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -213,7 +213,7 @@
                     android:layout_height="15dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/icon_order_mycollection" />
+                    android:background="@drawable/icon_order_collection" />
 
                 <TextView
                     android:id="@+id/tv_myCollection"
@@ -222,7 +222,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="我的收藏"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -258,7 +258,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="我的地址"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -294,7 +294,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="32dp"
                     android:text="分享有礼"
-                    android:textColor="#8f8d8d"
+                    android:textColor="@color/color_gray_8f8d8c"
                     android:textSize="14sp" />
 
                 <ImageView

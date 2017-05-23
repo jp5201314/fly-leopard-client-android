@@ -1,11 +1,17 @@
 package cn.meituan.jp.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,6 +26,8 @@ public class HomePageCarouselWebViewActivity extends BaseActivity {
     ImageView ivBack;
     @Bind(R.id.iv_share)
     ImageView ivShare;
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +48,10 @@ public class HomePageCarouselWebViewActivity extends BaseActivity {
         //自适应屏幕
         wv.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         wv.getSettings().setLoadWithOverviewMode(true);
-
+        tvTitle.setText(getIntent().getStringExtra("topic"));
         wv.loadUrl(getIntent().getStringExtra("url"));
     }
+
 
     @OnClick(R.id.iv_back)
     public void back() {
