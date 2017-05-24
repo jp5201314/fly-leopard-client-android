@@ -126,4 +126,13 @@ public class UserSharedPreference {
     public String getNickName(){
         return mSharedPreference.getString("nick_name",null);
     }
+
+    public void setCollectionClickNum(int num){
+        editor.putInt("collectionClickNum",num);
+        editor.commit();
+    }
+
+    public int getCollectionClickNum(){
+        return mSharedPreference.getInt("collectionClickNum",0);
+    }
 }

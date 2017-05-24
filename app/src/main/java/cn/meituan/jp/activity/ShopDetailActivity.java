@@ -16,12 +16,15 @@ import com.shizhefei.view.indicator.transition.OnTransitionTextListener;
 import com.squareup.picasso.Picasso;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.meituan.jp.R;
+import cn.meituan.jp.UserSharedPreference;
 import cn.meituan.jp.adapter.TabIndicatorFragmentPagerShopAdapter;
+import cn.meituan.jp.event.CollectionShopEvent;
 
 public class ShopDetailActivity extends BaseActivity {
 
@@ -50,7 +53,7 @@ public class ShopDetailActivity extends BaseActivity {
     ViewPager vpShopInfo;
     private IndicatorViewPager indicatorViewPager;
     private IndicatorViewPager.IndicatorFragmentPagerAdapter adapter;
-    private static int amount = 0;
+    private int amount = 0;
     /**
      * Tab 标题
      *
@@ -66,7 +69,12 @@ public class ShopDetailActivity extends BaseActivity {
         ButterKnife.bind(this);
         this.setStatusBarColor(R.color.color_black_0e1214);
         getShopDetail();
-
+        amount = UserSharedPreference.getInstance().getCollectionClickNum();
+        if (amount==0){
+            ivCollection.setImageResource(R.drawable.icon_collection);
+        }else {
+            ivCollection.setImageResource(R.drawable.icon_collection_full);
+        }
     }
 
     private void getShopDetail() {
@@ -114,5 +122,21 @@ public class ShopDetailActivity extends BaseActivity {
         ButterKnife.unbind(this);
 
     }
-
+    @OnClick(R.id.iv_collection)
+    public void toColleaction(){
+        if (UserSharedPreference.getInstance().getIsLogined()==-1){
+            toLoginRegister();
+        }else {
+            amount++;
+            if(amount%2==0){
+                amount=0;
+                ivCollection.setImageResource(R.drawable.icon_collection);
+                EventBus.getDefault().post(new CollectionShopEvent(getIntent().getStringExtra("shop_name")));
+            }else {
+                UserSharedPreference.getInstance().setCollectionClickNum(amount);
+                ivCollection.setImageResource(R.drawable.icon_collection_full);
+                EventBus.getDefault().post(new CollectionShopEvent(getIntent().getStringExtra("shop_name")));
+            }
+        }
+    }
 }
