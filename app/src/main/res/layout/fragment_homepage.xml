@@ -38,6 +38,7 @@
             android:layout_margin="6dp"
             android:background="@drawable/select_btn_orange_background"
             android:text="@string/sreach"
+            android:visibility="gone"
             android:textSize="12dp" />
     </FrameLayout>
 

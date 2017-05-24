@@ -67,7 +67,6 @@ public class ShopDetailActivity extends BaseActivity {
         this.setStatusBarColor(R.color.color_black_0e1214);
         getShopDetail();
 
-
     }
 
     private void getShopDetail() {
