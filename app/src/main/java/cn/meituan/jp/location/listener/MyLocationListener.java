@@ -84,7 +84,7 @@ public class MyLocationListener implements BDLocationListener {
             sb.append("网络定位成功");
 
         } else if (location.getLocType() == BDLocation.TypeOffLineLocation) {
-
+            EventBus.getDefault().post(new LocationEvent(location.getAddrStr().split("省")[1]+">",location.getLongitude(),location.getLatitude()));
             // 离线定位结果
             sb.append("\ndescribe : ");
             sb.append("离线定位成功，离线定位结果也是有效的");
@@ -98,7 +98,7 @@ public class MyLocationListener implements BDLocationListener {
 
             sb.append("\ndescribe : ");
             sb.append("网络不同导致定位失败，请检查网络是否通畅");
-            Toast.makeText(mContext, "网络不同导致定位失败，请检查网络是否通畅", Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, "网络不同导致定位失败，请检查网络是否通畅", Toast.LENGTH_SHORT).show();
 
         } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
 

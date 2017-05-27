@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="定位中..." />
+                android:text="攀枝花学院分析与测试中心..." />
         </LinearLayout>
 
         <Button
@@ -51,7 +51,7 @@
         cube_ptr:ptr_keep_header_when_refresh="true"
         cube_ptr:ptr_pull_to_fresh="false"
         cube_ptr:ptr_ratio_of_header_height_to_refresh="1.0"
-        cube_ptr:ptr_resistance="1.5">
+        cube_ptr:ptr_resistance="1.2">
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
