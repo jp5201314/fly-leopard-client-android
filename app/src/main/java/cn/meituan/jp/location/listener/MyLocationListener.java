@@ -98,7 +98,7 @@ public class MyLocationListener implements BDLocationListener {
 
             sb.append("\ndescribe : ");
             sb.append("网络不同导致定位失败，请检查网络是否通畅");
-            Toast.makeText(mContext, "网络不同导致定位失败，请检查网络是否通畅", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(mContext, "网络不同导致定位失败，请检查网络是否通畅", Toast.LENGTH_SHORT).show();
 
         } else if (location.getLocType() == BDLocation.TypeCriteriaException) {
 
@@ -119,9 +119,6 @@ public class MyLocationListener implements BDLocationListener {
                 sb.append(p.getId() + " " + p.getName() + " " + p.getRank());
             }
         }
-
-        Log.i("BaiduLocationApiDem", sb.toString());
-
     }
 
     @Override

@@ -83,7 +83,7 @@ public class HomePageSearchActivity extends BaseActivity {
 
     @OnClick(R.id.iv_search)
     public void search(){
-
+        toast("暂无当前搜索的商家...");
     }
 
 }

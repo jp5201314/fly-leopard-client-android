@@ -70,9 +70,9 @@ public class ShopDetailActivity extends BaseActivity {
         this.setStatusBarColor(R.color.color_black_0e1214);
         getShopDetail();
         amount = UserSharedPreference.getInstance().getCollectionClickNum();
-        if (amount==0){
+        if (amount == 0) {
             ivCollection.setImageResource(R.drawable.icon_collection);
-        }else {
+        } else {
             ivCollection.setImageResource(R.drawable.icon_collection_full);
         }
     }
@@ -122,21 +122,28 @@ public class ShopDetailActivity extends BaseActivity {
         ButterKnife.unbind(this);
 
     }
+
     @OnClick(R.id.iv_collection)
-    public void toColleaction(){
-        if (UserSharedPreference.getInstance().getIsLogined()==-1){
+    public void toColleaction() {
+        if (UserSharedPreference.getInstance().getIsLogined() == -1) {
             toLoginRegister();
-        }else {
+        } else {
             amount++;
-            if(amount%2==0){
-                amount=0;
+            if (amount % 2 == 0) {
+                amount = 0;
                 ivCollection.setImageResource(R.drawable.icon_collection);
                 EventBus.getDefault().post(new CollectionShopEvent(getIntent().getStringExtra("shop_name")));
-            }else {
+            } else {
                 UserSharedPreference.getInstance().setCollectionClickNum(amount);
                 ivCollection.setImageResource(R.drawable.icon_collection_full);
                 EventBus.getDefault().post(new CollectionShopEvent(getIntent().getStringExtra("shop_name")));
             }
         }
     }
+
+    @OnClick(R.id.iv_shop_search)
+    public void search() {
+        startActivity(new Intent(this, HomePageSearchActivity.class));
+    }
+
 }

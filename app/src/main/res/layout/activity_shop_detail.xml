@@ -35,7 +35,6 @@
                 android:layout_height="39dp"
                 android:layout_marginRight="12dp"
                 android:padding="6dp"
-                android:visibility="gone"
                 android:src="@drawable/icon_home_page_search_white" />
 
             <ImageView

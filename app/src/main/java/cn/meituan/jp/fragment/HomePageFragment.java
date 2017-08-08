@@ -139,7 +139,6 @@ public class HomePageFragment extends BaseFragment {
             }
         });
         mvc.refresh();
-
     }
 
     //初始化固定布局
